@@ -1,0 +1,38 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.top_wrapper {
+margin :30px 0;
+width :700px;
+height :300px;
+background-image:  url('apple_cake.png');
+background-size: cover;
+position: relative;
+}
+
+.welcome_message {
+  background: rgba(255,255,255,.6);
+  width :500px;
+  height :180px;
+  position: absolute;
+  margin :50px 100px;
+  display :block;
+  padding :20px;
+  p {
+   font-size :18px;
+	}
+}
+
+table {
+  border: solid 1px black;
+  margin :30px 50px;
+  width :200px;
+  height :300px;
+}
+
+table th {
+  border: solid 1px black;
+  text-align :center;
+}
