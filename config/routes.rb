@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root 'home#top'
 
-  devise_for :customers
+  devise_for :customers, controllers: {
+    registrations: 'customers/registrations',
+    sessions: "customers/sessions",
+  }
+
   devise_for :admins
 
   resource :customers

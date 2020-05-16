@@ -1,3 +1,95 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+////会員登録フォームここから////
+
+table.registration_form {
+  border: solid 0px;
+  margin :30px 50px;
+  width :700px;
+}
+
+label {
+  font-weight: normal;
+}
+
+.actions {
+  margin :20px 400px;
+  .btn {
+  width :200px;
+  }
+}
+
+.registration {
+  background-color :#fff5ee;
+  margin :60px 60px;
+}
+
+.login {
+	margin :20px 60px;
+}
+
+table.mypage_orders {
+  border: solid 0px;
+  margin :30px 0;
+  width :200px;
+  height :100px;
+}
+
+table.login_menu {
+  border: solid 0px;
+  margin :10px auto;
+  width :500px;
+  height :100px;  
+}
+
+////会員登録フォームここまで////
+
+
+
+////退会ページここから////
+.withdraw-wapper {
+	margin :50px;
+	text-align :center;
+	.message {
+	  margin :30px 0;
+	}
+	ul {
+	  list-style: none;
+	  font-size :18px;
+	}
+	.btn {
+	width :130px;
+	margin :10px;
+	}
+}
+////退会ページここまで////
+
+
+////マイページここから////
+table.info-table {
+  border: solid 1px;
+  margin :20px 0;
+  width :600px;
+  	td {
+  	 padding-left :5px;
+  	 border: solid 1px;
+  	}
+  .left {
+  	background-color : #fff5ee;
+  	width :30%;
+  	}
+}
+
+.info-menu {
+ margin :10px 0;
+}
+
+table.mypage_orders {
+  .btn {
+  width :120px;
+  }
+}
+
+////マイページここまで////

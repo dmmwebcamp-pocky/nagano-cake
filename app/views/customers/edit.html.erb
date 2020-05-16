@@ -1,2 +1,49 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+
+  <span class="registration">登録情報編集</span>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+      <table class="registration_form">
+          <tr>
+            <td><%= f.label :名前 %></td>
+            <td><%= f.label :（姓） %></td>
+            <td><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %></td>
+            <td></td>
+            <td><%= f.label :（名） %></td>
+            <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :フリガナ %></td>
+            <td><%= f.label :（セイ） %></td>
+            <td><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %></td>
+            <td></td>
+            <td><%= f.label :（メイ） %></td>
+            <td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %></td>
+          </tr>
+           <tr>
+            <td><%= f.label :メールアドレス %></td>
+            <td></td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+           <tr>
+            <td><%= f.label :郵便番号（ハイフンなし） %></td>
+            <td></td>
+            <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %></td>
+          </tr>
+           <tr>
+            <td><%= f.label :住所 %></td>
+            <td></td>
+            <td colspan="5" class="address"><%= f.text_field :address, autofocus: true, autocomplete: "address", :size=>"60" %></td>
+          </tr>
+           <tr>
+            <td><%= f.label :電話番号（ハイフンなし） %></td>
+            <td></td>
+            <td><%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %></td>
+          </tr>
+      </table>
+
+    <div class="actions">
+      <%= f.submit "編集内容を保存する", class: "btn btn-success " %>
+      <%=link_to "退会する", root_path, method: :delete, class: "btn btn-danger" %>
+    </div>
+  <% end %>

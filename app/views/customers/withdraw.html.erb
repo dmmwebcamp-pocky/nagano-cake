@@ -1,17 +1,17 @@
-<div class="row">
-	<div class="main col-md-offset-3 col-md-6">
+<div class="withdraw-wapper">		
+	<h4><b>本当に退会しますか？</b></h4>
 
-		<h4>本当に退会しますか？</h4>
-			<p>退会すると、会員登録情報や</p>
-			<p>これまでの購入履歴が閲覧できなくなります。</p>
-			<p>退会する場合は、「退会する」をクリックしてください。</p>
-
-			<div class="btn-wrapper">
-				<div class="row">
-					<%=link_to "退会しない", root_path, class: "btn btn-primary" %>
-					<%=link_to "退会する", root_path, class: "btn btn-danger" %>
-				</div>
-			</div>
-
+	<div class="message">
+	 <ul>
+		<li>退会すると、会員登録情報や</li>
+		<li>これまでの購入履歴が閲覧できなくなります。</li>
+		<li>退会する場合は、「退会する」をクリックしてください。</li>
+	</ul>
 	</div>
+
+	<div class="btn-withdraw">
+		<%=link_to "退会しない", root_path, class: "btn btn-primary" %>
+		<%=link_to "退会する", root_path, class: "btn btn-danger" %>
+	</div>
+
 </div>
