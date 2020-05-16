@@ -275,7 +275,10 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.5)
   jquery-rails
+<<<<<<< HEAD
   kaminari (~> 1.1.1)
+=======
+>>>>>>> develop
   listen (>= 3.0.5, < 3.2)
   paranoia
   puma (~> 3.11)

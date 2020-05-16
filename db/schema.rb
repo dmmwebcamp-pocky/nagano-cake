@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_102129) do
+ActiveRecord::Schema.define(version: 2020_05_15_124605) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2020_05_15_102129) do
     t.string "product_name"
     t.string "image"
     t.integer "genre"
+    t.string "image_id"
+    t.integer "genre_id"
     t.text "explanation"
     t.integer "nontax"
     t.integer "sales_status"
