@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resource :customers
   get 'customers/withdraw' => 'customers#withdraw'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-      
+
   #my root
   resources :products, only: [:show, :index]
 
