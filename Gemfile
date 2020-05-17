@@ -69,3 +69,4 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'paranoia'
 gem 'kaminari','~> 1.1.1' 
+gem 'pry-byebug'

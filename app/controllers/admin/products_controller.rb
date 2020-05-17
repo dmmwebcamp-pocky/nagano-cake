@@ -3,10 +3,10 @@ class Admin::ProductsController < ApplicationController
 
 	def	index
 		@products = Product.all
-		#@product = Product.find(params[:id])
 	end
 
 	def	show
+		@product = Product.find(params[:id])
 	end
 
 	def	new
@@ -15,14 +15,22 @@ class Admin::ProductsController < ApplicationController
 
 	def	create
 		@product = Product.new(product_params)
-		@product.save
-		redirect_to root_path
+		if @product.save
+		redirect_to admin_product_path(@product)
+		else render :new
+		end
 	end
 
 	def	edit
+		@product = Product.find(params[:id])
 	end
 
-	def update	
+	def update
+		@product = Product.find(params[:id])
+		if @product.update(product_params)
+			redirect_to admin_product_path(@product)
+		else render :edit
+		end
 	end
 
 	private
