@@ -1,4 +1,4 @@
-class Costomer::ProductsController < ApplicationController
+class Customers::ProductsController < ApplicationController
     #商品一覧ページ
     def index
         #product.allにページネーション実装(1ページ8件)
