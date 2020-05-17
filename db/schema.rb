@@ -48,10 +48,8 @@ ActiveRecord::Schema.define(version: 2020_05_15_124605) do
 
   create_table "products", force: :cascade do |t|
     t.string "product_name"
-    t.string "image"
-    t.integer "genre"
     t.string "image_id"
-    t.integer "genre_id"
+    t.integer "genre"
     t.text "explanation"
     t.integer "nontax"
     t.integer "sales_status"

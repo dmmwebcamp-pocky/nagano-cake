@@ -1,11 +1,24 @@
 class ProductsController < ApplicationController
     #商品一覧ページ
     def index
-        @products = Product.all
+        #product.allにページネーション実装(1ページ8件)
+        @products = Product.all.page(params[:page]).per(8)
     end
     
     #商品詳細ページ
     def show
-        @product = Product.find(params[:id])
+        #@product = Product.find(params[:id])
     end
+    
+    #（仮）カートへ追加する数量を送信
+    def create
+        @quantity = Product.new(product_params)
+    end
+
+    private
+
+    def product_params
+        params.require(:product).permit(:nontax)
+    end
+
 end

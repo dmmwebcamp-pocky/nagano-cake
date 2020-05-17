@@ -31,27 +31,27 @@
 		</div>
 	</div>
 
-	<div class="col-xs-9">
-		<div class="#">
-			<h2>商品詳細</h2>
-			<a href="#">もっとみる></a>
-            <table>
-                <thead>
-                    <tr>
-                        <th>画像</th>
-                        <th>商品名</th>
-                        <th>金額</th>
-                    </tr>       
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>image<td>
-                        <td>product<td>
-                        <td>prace<td>
-                    </tr>
-                </tbody>
-            </table>
+	<div class="col-xs-4">
+		<div class="product-box-left">
+          <%# 商品写真エリア %>
 		</div>
 	</div>
+    <div class="col-xs-5">
+        <div class="product-box-right">
+            <h2>いちごのショートケーキ</h2>
+            <div class="product-introduction">
+               商品の説明文です商品の説明文です商品の説明文です商品の説明文です商品の説明文です
+               商品の説明文です商品の説明文です商品の説明文です商品の説明文です商品の説明文です
+               商品の説明文です商品の説明文です商品の説明文です商品の説明文です商品の説明文です
+            </div>
+            <br>
+            <p><span class=product-price>￥ 550</span>（税込）</p>
+            <br>
+            <%# 商品の数量選択プルダウン %>
+            <%# <%= form_for @quantity do |f| %>
+                <%# <%= f.select :nontax, [["1",1], ["2",2]], include_blank: "個数選択" %>
+                <%# <%= f.submit 'カートに入れる'%>
+            <%# <% end %>
+        </div>
+    </div>
 </div>
