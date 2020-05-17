@@ -1,4 +1,4 @@
-// Place all the styles related to the costomer::products controller here.
+// Place all the styles related to the customer::products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -14,6 +14,7 @@
     width:210px;
     height:140px;
     background-image: url('pakkun.jpg');
+    background:rgba(123,123,8,.5);
     background-size: cover;
     margin-bottom:15px;
 }

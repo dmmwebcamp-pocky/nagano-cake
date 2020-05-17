@@ -6,11 +6,11 @@ Rails.application.routes.draw do
 
   resource :customers
   get 'customers/withdraw' => 'customers#withdraw'
-  get 'products/show' => 'products/show'
+  get 'customer/products/show' => 'costomer/products/show'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   #my root
-  namespace :costomer do
+  namespace :customer do
       resources :products, only: [:show, :index]
   end
 

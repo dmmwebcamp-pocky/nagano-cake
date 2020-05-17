@@ -7,7 +7,7 @@ class Costomer::ProductsController < ApplicationController
     
     #商品詳細ページ
     def show
-        #@product = Product.find(params[:id])
+        @product = Product.find(params[:id])
     end
     
     #（仮）カートへ追加する数量を送信
@@ -18,6 +18,6 @@ class Costomer::ProductsController < ApplicationController
     private
 
     def product_params
-        params.require(:product).permit(:nontax)
+        params.require(:product).permit(:image, :product_name, :explanation, :genre_id, :nontax, :sales_status)
     end
 end

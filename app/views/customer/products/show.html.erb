@@ -33,19 +33,17 @@
 
 	<div class="col-xs-4">
 		<div class="product-box-left">
-          <%# 商品写真エリア %>
+            <%= attachment_image_tag(@product.image, :image,fill,140, 210, fallback: "no-image-mini.jpg") %>
 		</div>
 	</div>
     <div class="col-xs-5">
         <div class="product-box-right">
-            <h2>いちごのショートケーキ</h2>
+            <h2><%= @product.product_name %></h2>
             <div class="product-introduction">
-               商品の説明文です商品の説明文です商品の説明文です商品の説明文です商品の説明文です
-               商品の説明文です商品の説明文です商品の説明文です商品の説明文です商品の説明文です
-               商品の説明文です商品の説明文です商品の説明文です商品の説明文です商品の説明文です
+                <%= @product.explanation %>
             </div>
             <br>
-            <p><span class=product-price>￥ 550</span>（税込）</p>
+            <p><span class=product-price><%= @product.nontax %></span>（税込）</p>
             <br>
             <%# 商品の数量選択プルダウン %>
             <%# <%= form_for @quantity do |f| %>
