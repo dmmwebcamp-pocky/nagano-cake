@@ -37,11 +37,11 @@
             <div class="main-box clearfix">
                 <%# 実装用 %>
                 <% @products.each do |product| %> 
-                    <div class="product-box"> %>
+                    <div class="product-box">
                         <%= attachment_image_tag(product.image, :image,fill,140, 210, fallback: "no-image-mini.jpg") %> 
                         <%= product.product_name %> 
                         <%= product.nontax * 1.1 %> 
-                     </div>
+                    </div>
                 <% end %> 
             </div>
 		</div>

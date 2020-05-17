@@ -2,7 +2,7 @@ class Customers::ProductsController < ApplicationController
     #商品一覧ページ
     def index
         #product.allにページネーション実装(1ページ8件)
-        @products = Product.all.page(params[:page]).per(8)
+        @products = Product.all #.all.page(params[:page]).per(8)
     end
     
     #商品詳細ページ
