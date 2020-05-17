@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<h2>商品詳細</h2>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-4">	
+    		<p><%= attachment_image_tag @product, :image,　format: 'jpeg', fallback: "no_image.jpg", size: "300x300" %></p>
+    	</div>
+
+    	<div class="col-xs-4">
+    		<p>商品名<%= @product.product_name %></p>
+    		<p>商品説明<%= @product.explanation %></p>
+    		<p>ジャンル<%= @product.genre.genre_name %></p>
+    		<p>税込価格（税抜価格）（<%= @product.nontax %>）円</p>
+    		<p>販売ステータス<%= @product.sales_status %></p>
+    	</div>
+    </div>
+    <div class="row">
+		<div class="col-xs-2 col-xs-offset-10">
+			<%= link_to '編集する', edit_admin_product_path(@product), class: "btn btn-primary btn-lg btn-block" %>
+		</div>
+	</div>
+</div>
+			
+
+

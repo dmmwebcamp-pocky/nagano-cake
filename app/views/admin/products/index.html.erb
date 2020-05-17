@@ -18,12 +18,12 @@
 				<% @products.each do |product| %>
 					<tr>
 						<td><%= product.id %></td>
-						<td><%= link_to product.product_name, admin_product(@product) %></td>
+						<td><%= link_to product.product_name, admin_product_path(product) %></td>
 						<td><%= product.nontax %></td>
-						<td><%= product.genre_id %></td>
+						<td><%= product.genre.genre_name %></td>
 						<td><%= product.sales_status %></td>
 					</tr>
-				<end>
+				<% end %>
 			</tbody>
 		</table>
 	</div>
