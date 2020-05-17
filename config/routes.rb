@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   #my root
-  resources :products, only: [:show, :index]
+  namespace :costomer do
+      resources :products, only: [:show, :index]
+  end
 
   namespace :admin do
   	resources :products

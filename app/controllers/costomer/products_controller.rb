@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class Costomer::ProductsController < ApplicationController
     #商品一覧ページ
     def index
         #product.allにページネーション実装(1ページ8件)
@@ -20,5 +20,4 @@ class ProductsController < ApplicationController
     def product_params
         params.require(:product).permit(:nontax)
     end
-
 end
