@@ -16,3 +16,61 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+////会員登録フォームここまで////
+
+.registration-wrapper {
+  margin :100px 100px;
+  backgrond-color :pink;
+}
+
+.headline-logo {
+  background-color :#fff5ee;
+  margin :60px 150px;
+  font-size :18px;
+}
+
+table.registration_form {
+  border: solid 0px;
+  margin :20px 80px;
+  width :680px;
+  height :300px;
+  .btn-primary {
+  width :180px;
+  }
+}
+
+label {
+  font-weight: normal;
+}
+
+.actions {
+  margin :20px 400px;
+  .btn {
+  width :200px;
+  }
+}
+
+p.login-here {
+  margin-left :200px;
+}
+
+.login {
+	margin :20px 60px;
+}
+
+
+table.login-menu {
+  border: solid 0px;
+  margin :10px auto;
+  width :700px;
+  height :150px;
+  .forget {
+  margin-left :150px;
+  } 
+  .btn-primary {
+  width :120px;
+  } 
+}
+
+
+////会員登録フォームここまで////

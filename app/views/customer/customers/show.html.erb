@@ -1,0 +1,56 @@
+ <%= link_to  "ログアウト", destroy_customer_session_path, class: "logout glyphicon glyphicon-log-out", method: :delete %>
+
+<div class="mypage-wrapper">
+
+	<div class="mypage-logo">
+		<span>マイページ</span>
+	</div>
+
+	<div class="info-menu">
+		<span>登録情報</span>
+		<%= link_to '編集する',edit_customer_customers_path, class: "btn btn-primary" %>
+		<%=link_to "パスワードを変更する", root_path, class: "btn btn-primary" %>
+	</div>
+
+	<table class="info-table">
+		<tbody>
+			<tr>
+				<td class="left">氏名</td>
+				<td><%= @customer.first_name %><%= @customer.last_name %></td>
+			</tr>
+			<tr>
+				<td class="left">カナ</td>
+				<td><%= @customer.first_name_kana %><%= @customer.last_name_kana %></td>
+			</tr>
+			<tr>
+				<td class="left">郵便番号</td>
+				<td><%= @customer.postal_code %></td>
+			</tr>
+			<tr>
+				<td class="left">住所</td>
+				<td><%= @customer.address %></td>
+			</tr>
+			<tr>
+				<td class="left">電話番号</td>
+				<td><%= @customer.phone_number %></td>
+			</tr>
+			<tr>
+				<td class="left">メールアドレス</td>
+				<td><%= @customer.email %></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="my-orders">
+		<tbody>
+			<tr>
+				<td>配送先</td>
+				<td><%= link_to '一覧を見る',root_path, class: "btn btn-primary" %></td>
+			</tr>
+			<tr>
+				<td>注文履歴</td>
+				<td><%= link_to '一覧を見る',root_path, class: "btn btn-primary" %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
