@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   #my root
   namespace :customers do
-      resources :products, only: [:show, :index]
+      resources :products, only: [:show, :index, :new, :create]
   end
 
   namespace :admin do

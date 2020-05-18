@@ -9,16 +9,6 @@
     clear:both;
 }
 
-//nise-imageゴリ押しです。消します。
-.nise-image{
-    width:210px;
-    height:140px;
-    background-image: url('pakkun.jpg');
-    background:rgba(123,123,8,.5);
-    background-size: cover;
-    margin-bottom:15px;
-}
-
 .product-box{
     width:230px;
     height:220px;
@@ -57,7 +47,6 @@
 
 .product-box-left{
     margin-top:50px;
-    background-image: url('pakkun.jpg');
     width:450px;
     height:250px;
     background-size: cover;

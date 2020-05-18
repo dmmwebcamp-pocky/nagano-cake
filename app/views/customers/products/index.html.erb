@@ -38,21 +38,15 @@
                 <%# 実装用 %>
                 <% @products.each do |product| %> 
                     <div class="product-box">
-                        <%= attachment_image_tag(product.image, :image,fill,140, 210, fallback: "no-image-mini.jpg") %> 
-                        <%= product.product_name %> 
-                        <%= product.nontax * 1.1 %> 
+                        <%= attachment_image_tag(product, :image, :fill,210, 140, fallback: "no-image-mini.jpg") %> 
+                        <p><%= link_to product.product_name, customers_product_path(product.id) %></p> 
+                        <p>￥<%= product.nontax * 1.1 %></p> 
                     </div>
                 <% end %> 
             </div>
 		</div>
         <div class="pagination">
-            <p><<</p>
-            <p><</p>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>></p>
-            <p>>></p>
+		    <%= paginate @products %>
         </div>
 	</div>
 </div>
