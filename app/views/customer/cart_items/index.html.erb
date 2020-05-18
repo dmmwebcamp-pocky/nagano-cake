@@ -1,0 +1,38 @@
+<table class="cart-table">
+    <h4>ショッピングカート</h4>
+    <%= link_to "カートを空にする", root_path, class: "btn btn-danger pull" %>
+      <tbody>
+        <tr>
+          <td class="col-xs-4">商品名</td>
+          <td class="col-xs-2">単価(税抜)</td>
+          <td class="col-xs-2">数量</td>
+          <td class="col-xs-2">小計</td>
+          <td class="col-xs-2"></td>
+        </tr>
+           <tr>
+             <td><<%= attachment_image_tag cart_item.product, :image, :fill, 50, 50, format:'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %><%= cart.product.product_name %></td>
+             <td><%= cart.product.tax_excluded %></td>
+             <td><%= form_for cart do |f| %>
+               <%= f.select :quantity, [*1..100] ,class:"form-control" %>
+               <%= link_to '編集', root_path, method: :delete, class: "btn btn-primary" %></td>
+             <td><%= calc = cart.product.product_tax * cart.quantity %></td>
+             <td><%= link_to '削除する', root_path, method: :delete, class: "btn btn-danger" %></td>
+           </tr>
+      </tbody>
+  </table>
+
+  <table class="cart-totalprice">
+      <thead>
+        <tr>
+          <th class="col-xs-4"><%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %></th>
+          <th class="col-xs-2"></th>
+          <th class="col-xs-2"></th>
+          <td class="col-xs-2">合計金額</th>
+          <td class="col-xs-2"><%= sum %></th>
+        </tr>
+      </thead>
+  </table>
+   <%= link_to "情報入力に進む", root_path, class: "btn btn-success" %>
+
+
+

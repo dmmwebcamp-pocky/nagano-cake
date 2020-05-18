@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
 
-  get 'cart_items' => "cart_items#show"
+  get 'customer/cart_items' => "customer/cart_items#index"
 
   namespace :admin do
   	resources :genres
