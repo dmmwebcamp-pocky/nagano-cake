@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   
 
   namespace :customer do
-  	resource :customers
+    resource :customers
+    resources :products, only: [:show, :index, :new, :create]
   end
 
   devise_for :admins
