@@ -5,18 +5,14 @@ Rails.application.routes.draw do
   
 
   namespace :customer do
-  	resource :customers
+    resource :customers
+    resources :products, only: [:show, :index, :new, :create]
   end
 
   devise_for :admins
 
   get 'customer/customers/withdraw' => 'customer/customers#withdraw'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  #my root
-  namespace :customers do
-      resources :products, only: [:show, :index, :new, :create]
-  end
 
   namespace :admin do
   	resources :products

@@ -1,4 +1,4 @@
-class Customers::ProductsController < ApplicationController
+class Customer::ProductsController < ApplicationController
     #商品一覧ページ
     def index
         #product.allにページネーション実装(1ページ8件)
@@ -8,7 +8,7 @@ class Customers::ProductsController < ApplicationController
     #商品詳細ページ
     def show
         @product = Product.find(params[:id])
-        @quantity = admin/Ordered_product.new
+        @quantity = CartItem.new
     end
     
     #（仮）カートへ追加する数量を送信
