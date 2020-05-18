@@ -16,4 +16,11 @@ Rails.application.routes.draw do
   	resources :genres
   end
 
+  namespace :customers do
+    resources :orders, only: [:index, :show, :create]
+    get 'orders/input' => 'orders/input'
+    get 'orders/confirm' => 'orders/confirm'
+    get 'orders/done' => 'orders/done'
+  end
+
 end
