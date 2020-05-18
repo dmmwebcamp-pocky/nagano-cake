@@ -63,6 +63,22 @@ ActiveRecord::Schema.define(version: 2020_05_17_180440) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "ordered_postal_code"
+    t.string "ordered_address"
+    t.string "adress_name"
+    t.integer "shipping_cost"
+    t.integer "total_price"
+    t.integer "payment_method"
+    t.integer "order_status"
+    t.integer "customer_id"
+    t.integer "ordered_product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["ordered_product_id"], name: "index_orders_on_ordered_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.string "image_id"
