@@ -46,10 +46,10 @@
             <p><span class=product-price><%= @product.nontax %></span>（税込）</p>
             <br>
             <%# 商品の数量選択プルダウン %>
-            <%# <%= form_for @quantity do |f| %>
-                <%# <%= f.select :quantity, [["1",1], ["2",2]], include_blank: "個数選択" %>
-                <%# <%= f.submit 'カートに入れる'%>
-            <%# <% end %>
+            <%= form_for @quantity do |f| %>
+                <%= f.select :quantity, [["1",1], ["2",2]], include_blank: "個数選択" %>
+                <%= f.submit 'カートに入れる'%>
+            <% end %>
         </div>
     </div>
 </div>

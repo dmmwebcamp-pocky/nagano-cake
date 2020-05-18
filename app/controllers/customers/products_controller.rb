@@ -8,13 +8,8 @@ class Customers::ProductsController < ApplicationController
     #商品詳細ページ
     def show
         @product = Product.find(params[:id])
-        @quantity = Product.new
+        @quantity = admin/Ordered_product.new
     end
-
-    #newアクション必要？
-    def	new
-		@quantity = Product.new
-	end
     
     #（仮）カートへ追加する数量を送信
     def create
