@@ -39,8 +39,8 @@
                 <% @products.each do |product| %> 
                     <div class="product-box">
                         <%= attachment_image_tag(product, :image, :fill,210, 140, fallback: "no-image-mini.jpg") %> 
-                        <p><%= link_to product.product_name, customers_product_path(product.id) %></p> 
-                        <p>￥<%= product.nontax * 1.1 %></p> 
+                        <p><%= link_to product.product_name, customers_product_path(product.id) %></p>  
+                        <p>￥<%= product.nontax * 1.1 %></p>
                     </div>
                 <% end %> 
             </div>
