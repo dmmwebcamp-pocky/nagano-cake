@@ -1,3 +1,13 @@
 <div class="order-wapper">
-    <span class="headline">
+    <%= form_fo @input,url: do |f| %>
+    <span class="headline">注文情報入力</span>
+    <%# 支払い方法box %>
+    <div class="cache-method">
+        <span class="headline-cache">支払方法</span>
+
+    </div>
+    <%# お届け先box %>
+    <div class="adress-method">
+        <span class="headline-adress">お届け先</span>
+    </div>
 </div>

@@ -14,6 +14,6 @@ class Customer::OrdersController < ApplicationController
     def confirm #注文情報確認画面
     end
 
-    def done #注文完了画面
+    def done #注文完了画面(OK)
     end
 end
