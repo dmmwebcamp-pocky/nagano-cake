@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-offset-2 col-xs-8">
+			<h3><span style="background-color:gainsboro">　商品一覧　</span></h3><br><br>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-offset-2 col-xs-8">
+		<table class = "table table-hover table-inverse">
+			<thead>
+				<tr class="active">
+					<th>購入日</th>
+					<th>購入者</th>
+					<th>注文個数</th>
+					<th>注文ステータス</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% (@orders || []).each do |f| %>
+					<tr>
+						<td><%= link_to created_at, admin_order_path(f) %></td>
+						<td><%= f.customer_id %></td>
+						<td><%= f.quantity %></td>
+						<td><%= f.order_status %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>

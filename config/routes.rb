@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'orders/index'
+    get 'orders/show'
+    get 'orders/update'
+  end
   root 'home#top'
 
   devise_for :customers
@@ -14,6 +19,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
   	resources :genres
+  end
+
+  namespace :admin do
+    resources :orders
   end
 
 end
