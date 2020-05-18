@@ -1,23 +1,38 @@
-<div class="contanier">
+<div class="contanier-fluid">
   <div class="row">
-  	<div class="col-md-offset-3 col-md-5">
+  	<div class="col-xs-offset-2 col-xs-8">
       <div class="index-header">
         <h3>会員一覧</h3>
       </div>
     </div>
+  </div>
 
-    <div class="col-md-offset-3 col-md-6">
-      <table class="table table-hover" style="border:none;">
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <table class="table table-hover" style="border:none; width: 800px;  height: 100px;">
       	<thead>
-	      <tr>
-	        <th style="border:none;">会員ID</th>
-	      	<th style="border:none;">氏名</th>
-	      	<th style="border:none;">メールアドレス</th>
-	      	<th style="border:none;">ステータス</th>
+	      <tr class="active">
+	        <th style="border:none; text-align: left ">会員ID</th>
+	      	<th style="border:none; text-align: left">氏名</th>
+	      	<th style="border:none; text-align: left">メールアドレス</th>
+	      	<th style="border:none; text-align: left">ステータス</th>
 	      </tr>
 	    </thead>
 	    <tbody>
+	      <%@customers.each do |customer| %>
 	      <tr>
+	      	<td><%= customer.id %></td>
+	      	<td><%= customer.first_name %> <%= customer.last_name %></td>
+	      	<td><%= customer.email %></td>
+	      	<% if customer.customer_status == 0 %>
+	      	<td>有効</td>
+	      	<% else %>
+	      	<td>無効</td>
+	      	<% end %>
+	      </tr>
+	      <% end %>
+	    <!--
+	      <tr　>
 	      	 <td>1</td>
 	      	 <td>山田花子</td>
 	      	 <td>aaa@test.jp</td>
@@ -29,6 +44,13 @@
 	      	 <td>bbb@test.jp</td>
 	      	 <td>有効</td>
 	      </tr>
+	      <tr>
+	      	 <td>3</td>
+	      	 <td>松尾毅雄</td>
+	      	 <td>bbb@test.jp</td>
+	      	 <td>有効</td>
+	      </tr>
+	       -->
       	</tbody>
       </table>
     </div>
