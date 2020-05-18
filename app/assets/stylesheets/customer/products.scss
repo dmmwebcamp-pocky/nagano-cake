@@ -1,0 +1,53 @@
+// Place all the styles related to the customer::products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//以下商品一覧ページ
+.clearfix::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+
+.product-box{
+    width:230px;
+    height:220px;
+    float:left;
+    margin:5px;
+}
+
+.pagination{
+    width:90%;
+    height:100px;
+    margin:center;
+    text-align:center;
+}
+
+.pagination p {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    color: #fff;
+    background-color: #acabab;
+    border-radius: 3px;
+    line-height: 30px;
+}
+
+
+//以下商品詳細ページ
+.product-introduction{
+  width :450px;
+}
+
+.product-box-right{
+    margin-top:50px;
+    margin-left:0;
+}
+
+.product-box-left{
+    margin-top:50px;
+    width:450px;
+    height:250px;
+    background-size: cover;
+}
