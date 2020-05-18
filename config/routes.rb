@@ -17,12 +17,12 @@ Rails.application.routes.draw do
   	resources :products
   end
 
-<<<<<<< HEAD
+
   get 'cart_items' => "cart_items#show"
-=======
+
   namespace :admin do
   	resources :genres
   end
 
->>>>>>> origin/develop
+
 end
