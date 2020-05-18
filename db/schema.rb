@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_05_17_180440) do
+=======
+ActiveRecord::Schema.define(version: 2020_05_16_151808) do
+>>>>>>> origin/develop
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -54,6 +58,13 @@ ActiveRecord::Schema.define(version: 2020_05_17_180440) do
     t.index ["deleted_at"], name: "index_customers_on_deleted_at"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "genre_name"
+    t.integer "genre_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
