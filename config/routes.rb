@@ -5,22 +5,27 @@ Rails.application.routes.draw do
   root 'home#top'
 
   devise_for :customers
-  devise_for :admins, :controllers => {
-  	:registrations => 'admins/registrations',
-  	:sessions => 'admins/sessions'
-  }
 
-  devise_scope :admin do
-  	get "sign_in", :to => "admins/sessions#new"
-  	get "sign_out", :to => "admins/sessions#destroy"
+  namespace :customer do
+  	resource :customers
   end
 
-  resource :customers
-  get 'customers/withdraw' => 'customers#withdraw'
-  get 'admin/top' => 'admin#top'
+  devise_for :admins
+
+  get 'customer/customers/withdraw' => 'customer/customers#withdraw'
+
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :admin do
   	resources :products
   end
+
+
+  get 'cart_items' => "cart_items#show"
+
+  namespace :admin do
+  	resources :genres
+  end
+
+
 end
