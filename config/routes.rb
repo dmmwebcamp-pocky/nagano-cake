@@ -3,9 +3,16 @@ Rails.application.routes.draw do
   root 'home#top'
 
   devise_for :customers
-  
+
   delete 'customer/cart_items/:id' => 'customer/cart_items#cancel', as:'cart_items_cancel'
-  delete 'customer/cart_items' => 'customer/cart_items#destroy'
+
+  namespace :admin do
+    resources :customers
+  end
+  root 'home#top'
+
+  devise_for :customers
+
   namespace :customer do
     resource :customers
     resources :products, only: [:show, :index, :new, :create]
@@ -13,6 +20,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :admins
+
+  get '/admin/top' => 'admin#top'
 
   get 'customer/customers/withdraw' => 'customer/customers#withdraw'
 
