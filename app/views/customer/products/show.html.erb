@@ -1,0 +1,55 @@
+<%# 商品の詳細ページ（会員側） %>
+<div class="row">
+	<div class="col-xs-3">
+		<div class="search">
+			<table>
+  				<tr>
+    				<th>ジャンル検索</th>
+  				</tr>
+  				<tr>
+    				<td>ケーキ</td>
+  				</tr>
+  				<tr>
+    				<td>焼き菓子</td>
+  				</tr>
+  				 <tr>
+    				<td>プリン</td>
+  				</tr>
+  				 <tr>
+    				<td>キャンディ</td>
+  				</tr>
+  				 <tr>
+    				<td></td>
+  				</tr>
+  				 <tr>
+    				<td></td>
+  				</tr>
+  				 <tr>
+    				<td></td>
+  				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="col-xs-4">
+		<div class="product-box-left">
+            <%= attachment_image_tag(@product, :image, :fill,450, 250, fallback: "no_image.jpg") %>
+		</div>
+	</div>
+    <div class="col-xs-5">
+        <div class="product-box-right">
+            <h2><%= @product.product_name %></h2>
+            <div class="product-introduction">
+                <%= @product.explanation %>
+            </div>
+            <br>
+            <p><span class=product-price><%= @product.nontax %></span>（税込）</p>
+            <br>
+            <%# 商品の数量選択プルダウン %>
+            <%= form_for @quantity,url:customer_cart_items_path do |f| %>
+                <%= f.select :quantity, [["1",1], ["2",2]], include_blank: "個数選択" %>
+                <%= f.submit 'カートに入れる'%>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   devise_for :customers
 
   namespace :customer do
-  	resource :customers
+    resource :customers
+    resources :products, only: [:show, :index, :new, :create]
   end
 
   devise_for :admins
@@ -27,5 +28,8 @@ Rails.application.routes.draw do
   	resources :genres
   end
 
+  namespace :admin do
+    resources :orders
+  end
 
 end
