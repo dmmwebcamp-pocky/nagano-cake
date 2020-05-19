@@ -10,6 +10,25 @@
   </head>
 
   <body>
+    <header class="nav navbar-fixed-top">
+      <div class="container-fluid">
+        <nav class="nav navbar-nav navbar-left">
+          <h2><strong>ながのCAKE</strong></h2>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li>商品一覧</li>
+            <li>新規登録</li>
+            <li>ログイン</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
     <%= yield %>
+    </main>
+    <footer>
+      <p>©DMM WEBCAMP-Pocky, All Right Reserved.</p>
+    </footer>
   </body>
 </html>

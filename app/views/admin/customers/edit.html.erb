@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="title col-xs-11 col-xs-offset-1">
+	    <h3><%= @customer.first_name %> <%= @customer.last_name %>さんの会員情報編集</h3>
+	  </div>
+  </div>
+
+  <div class="row">
+  	<div class="col-xs-11 col-xs-offset-1">
+      <%= form_with model:@customer, url: admin_customer_path, local: true do |f| %>
+  	  <ul class="list-inline">
+      　　<li style="width: 140px;">顧客ID</li>
+      　　<li><%= @customer.id %></li>
+    　　</ul>
+    　　<ul class="list-inline">
+      　　<li style="width: 120px;">氏名</li>
+      　　<li><%= f.text_field :first_name, class: "admin_customer", style: "width: 130px;" %></li>
+         <li><%= f.text_field :last_name, class: "admin_customer", style: "width: 130px;" %></li>
+    　　</ul>
+    　　<ul class="list-inline">
+      　　<li style="width: 120px;">フリガナ</li>
+      　　<li><%= f.text_field :first_name_kana, class: "admin_customer", style: "width: 130px;" %></li>
+         <li><%= f.text_field :last_name_kana, class: "admin_customer", style: "width: 130px;" %></li>
+    　　</ul>
+    　　<ul class="list-inline">
+      　　<li style="width: 120px;">郵便番号</li>
+      　　<li><%= f.text_field :postal_code, class: "admin_customer", style: "width: 130px;" %></li>
+    　　</ul>
+    　　<ul class="list-inline">
+      　　<li style="width: 120px;">住所</li>
+      　　<li><%= f.text_field :address, class: "admin_customer", style: "width: 500px;" %></li>
+    　　</ul>
+    　　<ul class="list-inline">
+      　　<li style="width: 120px;">電話番号</li>
+      　　<li><%= f.text_field :phone_number, class: "admin_customer", style: "width: 180px;" %></li>
+    　　</ul>
+    　　<ul class="list-inline">
+      　　<li style="width: 120px;">メールアドレス</li>
+      　　<li><%= f.text_field :email, class: "admin_customer", style: "width: 180px;" %></li>
+    　　</ul>
+    　　<ul class="list-inline">
+      　　<li style="width: 120px;">会員ステータス</li>
+      　　<%= f.radio_button :customer_status, "有効" %> <%= f.label :有効 %>
+      　　<%= f.radio_button :customer_status, "退会済" %> <%= f.label :退会済み %>
+    　　</ul>
+    　　<ul class="list-inline">
+        　<%= f.submit "変更を保存する", class: "btn btn-primary", style: "display: inline-block; color: white; text-decoration:none;" %>
+    　　</ul>
+       <% end %>
+    </div>
+  	</div>
+  </div>
+</div>

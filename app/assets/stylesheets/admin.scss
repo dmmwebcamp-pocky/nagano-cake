@@ -1,0 +1,25 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-header {
+	display: inline-block;
+	margin: 20px 0;
+}
+
+h3 {
+	padding: 0 20px;
+	background-color: #e6e6e6;
+}
+
+.email_field {
+	margin-bottom: 10px;
+}
+
+.password_field {
+	margin-bottom: 10px;
+}
+
+.login_btn {
+	margin-top: 10px;
+}

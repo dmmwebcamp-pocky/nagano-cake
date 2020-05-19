@@ -1,0 +1,132 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+a:link {
+  color: #000000;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #696969;
+}
+
+header {
+	width: 100%;
+	height: 100px;
+	background-color: #fffacd;
+}
+
+header h2 {
+	margin: 30px 0 0 30px;
+	color: #8b4513;
+	font-family: 'Sacramento', cursive;
+}
+
+header ul {
+	padding: 20px 40px 0 0;
+}
+
+header li {
+	padding: 10px;
+	margin-left: 30px;
+	border: 1px solid #e6e6e6;
+	border-radius: 8px;
+	background-color: #ffffff;
+}
+main {
+	margin: 100px 0 80px 0;
+}
+footer {
+	background-color: #008000;
+	text-align: center;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+}
+
+footer p {
+	color: #fffacd;
+}
+
+.title {
+  padding-bottom: 20px;
+}
+
+.admin_customer {
+  border-radius: 5px;
+  text-align: center;
+}
+
+////会員登録フォームここまで////
+
+.registration-wrapper {
+  margin :100px 100px;
+}
+
+.headline-logo {
+  background-color :#fff5ee;
+  margin :60px 150px;
+  font-size :18px;
+}
+
+table.registration_form {
+  border: solid 0px;
+  margin :20px 80px;
+  width :680px;
+  height :300px;
+  .btn-primary {
+  width :180px;
+  }
+}
+
+label {
+  font-weight: normal;
+}
+
+.actions {
+  margin :20px 400px;
+  .btn {
+  width :200px;
+  }
+}
+
+p.login-here {
+  margin-left :200px;
+}
+
+.login {
+	margin :20px 60px;
+}
+
+
+table.login-menu {
+  border: solid 0px;
+  margin :10px auto;
+  width :700px;
+  height :150px;
+  .forget {
+  margin-left :150px;
+  }
+  .btn-primary {
+  width :120px;
+  }
+}
+
+
+////会員登録フォームここまで////
+
