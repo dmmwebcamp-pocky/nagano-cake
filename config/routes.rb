@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'orders/index'
-    get 'orders/show'
-    get 'orders/update'
+    resources :customers
   end
   root 'home#top'
 
   devise_for :customers
-  
 
   namespace :customer do
     resource :customers
@@ -17,6 +14,7 @@ Rails.application.routes.draw do
   devise_for :admins
 
   get 'customer/customers/withdraw' => 'customer/customers#withdraw'
+
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :admin do
