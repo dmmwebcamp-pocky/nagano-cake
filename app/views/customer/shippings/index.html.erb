@@ -1,6 +1,6 @@
 <span class="shipping-headline">配送先登録/一覧</span><br>
-<table class="#">
-    <%= form_for @shipping,url: customer_shippings_path do |f| %>
+<%= form_for @shipping,url: customer_shippings_path do |f| %>
+    <table class="#">
         <tr>
             <td><%= f.label :郵便番号（ハイフンなし） %></td>
             <td><%= f.text_field :postal_code %></td>
@@ -16,8 +16,8 @@
             <td><%= f.text_field :name %></td>
             <td><%= f.submit "登録する", class: "btn btn-success " %></td>
         </tr>
-    <% end %>
-</table><br>
+    </table>
+<% end %><br>
 <table class="#">
     <thead>
         <tr>
