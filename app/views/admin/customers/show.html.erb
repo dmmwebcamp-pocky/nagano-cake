@@ -1,50 +1,53 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-11 col-xs-offset-1">
-	  <h3><%= @customer.first_name %>　<%= @customer.last_name %>さんの会員詳細</h3>
+    <div class="title col-xs-11 col-xs-offset-1">
+	    <h3><%= @customer.first_name %> <%= @customer.last_name %>さんの会員詳細</h3>
     </div>
   </div>
 
   <div class="row">
   	<div class="col-xs-11 col-xs-offset-1">
-  	　　<ul class="list-inline">
-  		　　<li style="width: 120px;">顧客ID</li>
-  		　　<li><%= @customer.id %>
-  			  <% if @customer.customer_status == 0 %>
+  	  <ul class="list-inline">
+  		　<li style="width: 120px;">顧客ID</li>
+  		　<li><%= @customer.id %></li>
+      　<li>
+  			  <% if @customer.customer_status == "有効" %>
   			  <span class="label label-info">有効会員</span>
   			  <% else %>
-  			  <span class="label label-info">無効会員</span>
+  			  <span class="label label-danger">退会済</span>
   			   <% end %>
   			</li>
-  	　　</ul>
-  	　　<ul class="list-inline">
-  		　　<li style="width: 120px;">氏名</li>
-  		　　<li><%= @customer.first_name %>　<%= @customer.last_name %></li>
-  	　　</ul>
-  	　　<ul class="list-inline">
-  		　　<li style="width: 120px;">フリガナ</li>
-  		　　<li><%= @customer.first_name_kana %>　<%= @customer.last_name_kana %></li>
-  	　　</ul>
-  	　　<ul class="list-inline">
-  		　　<li style="width: 120px;">郵便番号</li>
-  		　　<li><%= @customer.postal_cade %></li>
-  	　　</ul>
-  	　　<ul class="list-inline">
-  		　　<li style="width: 120px;">住所</li>
-  		　　<li><%= @customer.address %></li>
-  	　　</ul>
-  	　　<ul class="list-inline">
-  		　　<li style="width: 120px;">メールアドレス</li>
-  		　　<li><%= @customer.email %></li>
-  	　　</ul>
+  	　</ul>
+  	　<ul class="list-inline">
+  		　<li style="width: 120px;">氏名</li>
+  		　<li><%= @customer.first_name %>　<%= @customer.last_name %></li>
+  	　</ul>
+  	　<ul class="list-inline">
+  		　<li style="width: 120px;">フリガナ</li>
+  		　<li><%= @customer.first_name_kana %>　<%= @customer.last_name_kana %></li>
+  	　</ul>
+  	　<ul class="list-inline">
+  		　<li style="width: 120px;">郵便番号</li>
+  		　<li><%= @customer.postal_code %></li>
+  	　</ul>
+  	　<ul class="list-inline">
+  		　<li style="width: 120px;">住所</li>
+  		　<li><%= @customer.address %></li>
+  	　</ul>
+    　<ul class="list-inline">
+      　<li style="width: 120px;">電話番号</li>
+      　<li><%= @customer.phone_number %></li>
+    　</ul>
+  	　<ul class="list-inline">
+  		　<li style="width: 120px;">メールアドレス</li>
+  		　<li><%= @customer.email %></li>
+  	　</ul>
   	</div>
 
   	<div class="row">
   	  <div class="col-xs-11 col-xs-offset-1">
-
-  	  		<div class="btn btn-primary" style="display: inline-block;">編集する</div>
-  	  		<div class="btn btn-primary" style="display: inline-block;">注文履歴一覧を見る</div>
-
+  	    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-primary", style: "display: inline-block; color: white; text-decoration:none;" %>
+  	  	<%= link_to "注文履歴を見る", root_path, class: "btn btn-primary", style: "display: inline-block; color: white; text-decoration:none;" %>
   	  </div>
   	</div>
   </div>
