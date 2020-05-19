@@ -2,7 +2,7 @@ class Customer::CartItemsController < ApplicationController
 
   def index
     @carts = current_customer.cart_items
-    @carts = CartItem.all
+
   end
 
   def create
@@ -10,8 +10,8 @@ class Customer::CartItemsController < ApplicationController
     if @cart
       @cart.quantity += params[:cart_item][:quantity].to_i
     else
-      @cart = CartItem.new(cart_items_params)
-      @cart.customer_id= current_customer.id
+      @cart = CartItem.new(cart_item_params)
+      @cart.customer_id = current_customer.id
     end
     @cart.save
     redirect_to customer_cart_items_path
@@ -19,7 +19,7 @@ class Customer::CartItemsController < ApplicationController
 
   def update
     @cart = CartItem.find(params[:id])
-    @cart.ucustomer_id= current_customer.id
+    @cart.customer_id= current_customer.id
     @cart.update(cart_item_params)
     redirect_to customer_cart_items_path
   end
@@ -31,9 +31,9 @@ class Customer::CartItemsController < ApplicationController
   end
 
   def destroy
-    @cart = CartItem.find(params[:id])
-    @cart.destroy
-    redirect_to customer_cart_items_path
+    @carts = current_customer.cart_items
+    @carts.destroy_all
+    redirect_to customer_products_path
   end
 
 

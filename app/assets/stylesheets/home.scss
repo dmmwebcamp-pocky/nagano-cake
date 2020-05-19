@@ -25,11 +25,23 @@ position: relative;
 	}
 }
 
-table.search-menu {
+.search-menu {
   border: solid 1px black;
   margin :30px 50px;
   width :200px;
   height :300px;
+  td {
+  padding-left: 10px;
+  }
+}
+
+.search-menu th {
+  border: solid 1px black;
+  text-align: center;
 }
 
 
+.recomend-items {
+  display: inline-flex;
+  margin-left: 30px;
+}
