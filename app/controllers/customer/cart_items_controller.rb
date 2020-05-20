@@ -24,7 +24,7 @@ class Customer::CartItemsController < ApplicationController
     redirect_to customer_cart_items_path
   end
 
-  def cancel
+  def cancel #ルーティングを作成する先は:idを入れてasでルーティング名をつける
     @cart = CartItem.find(params[:id])
     @cart.destroy
     redirect_to customer_cart_items_path
@@ -32,7 +32,7 @@ class Customer::CartItemsController < ApplicationController
 
   def destroy
     @carts = current_customer.cart_items
-    @carts.destroy_all
+    @carts.destroy_all    #全データを消す場合はdestroy_allメソッド（1つを消すときはdestroy)
     redirect_to customer_products_path
   end
 

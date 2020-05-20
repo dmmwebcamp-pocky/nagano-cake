@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :customers
   end
-  root 'home#top'
-
-  devise_for :customers
 
   namespace :customer do
     resource :customers
@@ -25,6 +22,7 @@ Rails.application.routes.draw do
 
   get 'customer/customers/withdraw' => 'customer/customers#withdraw'
 
+  get 'home/search/:genre_id' => 'home#search', as:'home_search'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :admin do
