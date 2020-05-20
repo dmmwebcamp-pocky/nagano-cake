@@ -18,7 +18,7 @@
 
 a:link {
   color: #000000;
-  text-decoration: underline;
+  // text-decoration: underline;
 }
 
 a:visited {
@@ -41,13 +41,7 @@ header h2 {
 }
 
 header ul {
-	padding: 20px 40px 0 0;
-}
-
-header span {
-  padding: 10px;
-  margin-right: 100px;
-  color: red;
+	padding: 8px 30px 0 0;
 }
 
 .youkoso {
@@ -59,16 +53,20 @@ header span {
 }
 
 .nav-menu {
-	padding: 10px;
 	margin-left: 30px;
 	border: 1px solid #a9a9a9;
 	border-radius: 8px;
 	background-color: rgba(255, 250, 205, 0.8);
 }
 
+.search_field {
+  padding: 5px 30px 0 0;
+}
+
 main {
 	margin: 100px 0 80px 0;
 }
+
 footer {
 	background-color: #008000;
 	text-align: center;
@@ -89,6 +87,30 @@ footer p {
   border-radius: 5px;
   text-align: center;
 }
+
+/// ページネーション ///
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #e6e6e6;
+  border-radius: 15px;
+}
+.pagination>.active>a:hover {
+  background: #808080;
+  border-radius: 15px;
+}
+
+.pagination>li>a:hover {
+  border-radius: 15px;
+  background: #808080;
+  color: #ffffff;
+}
+
+// ページネーション //
 
 ////会員登録フォームここまで////
 
@@ -127,9 +149,7 @@ p.login-here {
   margin-left :200px;
 }
 
-.login {
-	margin :20px 60px;
-}
+
 
 
 table.login-menu {
