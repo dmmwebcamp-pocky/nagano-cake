@@ -88,6 +88,30 @@ footer p {
   text-align: center;
 }
 
+/// ページネーション ///
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #e6e6e6;
+  border-radius: 15px;
+}
+.pagination>.active>a:hover {
+  background: #808080;
+  border-radius: 15px;
+}
+
+.pagination>li>a:hover {
+  border-radius: 15px;
+  background: #808080;
+  color: #ffffff;
+}
+
+// ページネーション //
+
 ////会員登録フォームここまで////
 
 .registration-wrapper {
