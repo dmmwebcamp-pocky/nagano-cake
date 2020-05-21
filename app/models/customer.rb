@@ -14,6 +14,7 @@ class Customer < ApplicationRecord
   validates :phone_number, presence: true,format: {with: /\A\d{10,11}\z/} #10桁or11桁の数字のみ有効
 
   has_many :cart_items, dependent: :destroy
+  has_many :shippings, dependent: :destroy 
   enum customer_status:{ 有効: 0, 退会済: 1}
 
   acts_as_paranoid #paranoia

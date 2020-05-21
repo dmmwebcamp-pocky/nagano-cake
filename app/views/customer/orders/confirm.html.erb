@@ -26,6 +26,10 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="ordered-box">
+                <span class="ordered-head">支払情報</span>
+                <%# <%= @order.payment_method %>
+            </div>
         </div>
 
         <div class="col-xs-4">
@@ -51,6 +55,21 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-8">
+            <ul>
+                <li><span class="titlw">支払方法</span></li>
+                <li><%= @order.payment_method %></li>
+            </ul>
+            <ul>
+                <li><span class="titlw">お届け先</span></li>
+                <li><%= @order.fullorder_address %></li>
+            </ul>
+        </div>
+        <div class="col-xs-4">
         </div>
     </div>
 
