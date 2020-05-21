@@ -12,24 +12,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>いちごのショートケーキ</td>
-                        <td>1,100</td>
-                        <td>1</td>
-                        <td>1,100</td>
-                    </tr>
-                    <tr>
-                        <td>かわしましょうご</td>
-                        <td>100</td>
-                        <td>99</td>
-                        <td>9,900</td>
-                    </tr>
+                    <% @cart.each do |cart| %>
+                        <% tanka = cart.nontax * 1.1 %>
+                        <tr>
+                            <td><%= cart.product_id.product_name %></td>
+                            <td><%= tanka %></td>
+                            <td><%= cart.quantity %></td>
+                            <td><%= tanka * cart.quantity %></td>
+                        </tr>
+                    <% end %>
                 </tbody>
             </table>
-            <div class="ordered-box">
-                <span class="ordered-head">支払情報</span>
-                <%# <%= @order.payment_method %>
-            </div>
         </div>
 
         <div class="col-xs-4">

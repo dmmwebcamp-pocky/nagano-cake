@@ -1,5 +1,5 @@
 <div class="order-wapper">
-    <%= form_with url: customer_orders_path do |f| %> 
+    <%= form_with url: customer_orders_confirm_path, method: :get do |f| %> 
         <span class="headline">注文情報入力</span>
         <%# 支払い方法box %>
         <div class="cache-method">
@@ -25,7 +25,7 @@
                 <%# 登録済の住所 %>
                 <%= f.radio_button :trigger, 'B' %>
                 <%= f.label :登録済住所から選択 %><br> 
-                <%= f.collection_select :address_id, Shipping.where(customer_id: 2), :id, :full_order_address, include_blank: "選択して下さい" %><br>
+                <%= f.collection_select :address_id, Shipping.where(customer_id: current_customer.id), :id, :full_order_address, include_blank: "選択して下さい" %><br>
 
                 <%# 新規登録住所 %>
                 <%= f.radio_button :trigger, 'C' %>
