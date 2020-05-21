@@ -1,15 +1,24 @@
 Rails.application.routes.draw do
+
   get 'search' => 'search#search'
   namespace :admin do
     resources :customers
   end
+
   root 'home#top'
 
   devise_for :customers
 
+  delete 'customer/cart_items/:id' => 'customer/cart_items#cancel', as:'cart_items_cancel'
+
+  namespace :admin do
+    resources :customers
+  end
+
   namespace :customer do
     resource :customers
     resources :products, only: [:show, :index, :new, :create]
+    resources :cart_items, only: [:index, :new, :create, :update]
   end
 
   devise_for :admins
@@ -18,14 +27,13 @@ Rails.application.routes.draw do
 
   get 'customer/customers/withdraw' => 'customer/customers#withdraw'
 
+  get 'home/search/:genre_id' => 'home#search', as:'home_search'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :admin do
   	resources :products
   end
 
-
-  get 'cart_items' => "cart_items#show"
 
   namespace :admin do
   	resources :genres

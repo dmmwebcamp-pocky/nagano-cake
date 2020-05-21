@@ -3,10 +3,12 @@ class Customer::ProductsController < ApplicationController
     def index
         #product.allにページネーション実装(1ページ8件)
         @products = Product.all.page(params[:page]).per(8)
+        @genres = Genre.all
     end
     
     #商品詳細ページ
     def show
+        @genres = Genre.all
         @product = Product.find(params[:id])
         @quantity = CartItem.new
     end

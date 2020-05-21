@@ -124,7 +124,7 @@ footer p {
   font-size :18px;
 }
 
-table.registration_form {
+.registration_form {
   border: solid 0px;
   margin :20px 80px;
   width :680px;
@@ -138,8 +138,8 @@ label {
   font-weight: normal;
 }
 
-.actions {
-  margin :20px 400px;
+.registration-actions {
+  margin :10px 400px;
   .btn {
   width :200px;
   }
@@ -152,7 +152,7 @@ p.login-here {
 
 
 
-table.login-menu {
+.login-menu {
   border: solid 0px;
   margin :10px auto;
   width :700px;
@@ -166,5 +166,5 @@ table.login-menu {
 }
 
 
-////会員登録フォームここまで////
+//会員登録フォームここまで
 
