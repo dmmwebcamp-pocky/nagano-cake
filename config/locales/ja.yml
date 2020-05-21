@@ -1,0 +1,8 @@
+ja:
+  views:
+    pagination:
+      first: <span><<</span>
+      last: <span>>></span>
+      previous: <span><</span>
+      next: <span>></span>
+      truncate: "..."

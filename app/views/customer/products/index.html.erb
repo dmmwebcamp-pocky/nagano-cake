@@ -1,34 +1,7 @@
 <%# 商品一覧ページ（会員側） %>
 <div class="row">
 	<div class="col-xs-3">
-		<div class="search">
-			<table>
-  				<tr>
-    				<th>ジャンル検索</th>
-  				</tr>
-  				<tr>
-    				<td>ケーキ</td>
-  				</tr>
-  				<tr>
-    				<td>焼き菓子</td>
-  				</tr>
-  				 <tr>
-    				<td>プリン</td>
-  				</tr>
-  				 <tr>
-    				<td>キャンディ</td>
-  				</tr>
-  				 <tr>
-    				<td></td>
-  				</tr>
-  				 <tr>
-    				<td></td>
-  				</tr>
-  				 <tr>
-    				<td></td>
-  				</tr>
-			</table>
-		</div>
+    <%= render 'layouts/searchform', genres: @genres %>
 	</div>
 
 	<div class="col-xs-9">
@@ -36,13 +9,13 @@
 			<h2>商品一覧</h2>
             <div class="main-box clearfix">
                 <%# 実装用 %>
-                <% @products.each do |product| %> 
+                <% @products.each do |product| %>
                     <div class="product-box">
-                        <%= attachment_image_tag(product, :image, :fill,210, 140, fallback: "no_image.jpg") %> 
-                        <p><%= link_to product.product_name, customer_product_path(product.id) %></p>  
-                        <p>￥<%= product.nontax * 1.1 %></p>
+                        <%= attachment_image_tag(product, :image, fallback: "no_image.jpg", size: "210x210") %>
+                        <p><%= link_to product.product_name, customer_product_path(product.id) %></p>
+                        <p>￥<%= taxprice = (product.nontax * 1.1).round %></p>
                     </div>
-                <% end %> 
+                <% end %>
             </div>
 		</div>
         <div class="pagination">
