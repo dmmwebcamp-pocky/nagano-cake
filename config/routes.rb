@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'search' => 'search#search'
+  namespace :admin do
+    resources :customers
+  end
+
   root 'home#top'
 
   devise_for :customers
