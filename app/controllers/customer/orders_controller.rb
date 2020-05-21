@@ -17,7 +17,8 @@ class Customer::OrdersController < ApplicationController
             @order.ordered_address = params[:ordered_address]
             @order.address_name = params[:address_name]
             @order.save
-            redirect_to customer_orders_confirm_path
+            session[:order_id] = @order.id
+            redirect_to ustomer_orders_confirm_path
         elsif trigger == 'A' #ご自身の住所
             @order = Order.new
             @order.payment_method = params[:payment_method]
@@ -27,6 +28,7 @@ class Customer::OrdersController < ApplicationController
             @order.ordered_address = Customer.find(1).address
             @order.address_name = Customer.find(1).first_name
             @order.save
+            session[:order_id] = @order.id
             redirect_to customer_orders_confirm_path
         else
             @order = Order.new
@@ -37,6 +39,7 @@ class Customer::OrdersController < ApplicationController
             @order.ordered_address = Shipping.find(params[:address_id]).address
             @order.address_name = Shipping.find(params[:address_id]).name
             @order.save
+            session[:order_id] = @order.id
             redirect_to customer_orders_confirm_path
         end
     end
@@ -47,8 +50,7 @@ class Customer::OrdersController < ApplicationController
     end
 
     def confirm #注文情報確認画面(途中)
-        @orders = Order.all
-        @order = Order.find(1)
+        @order = Order.find(session[:order_id])
     end
 
     def done #注文完了画面(OK)

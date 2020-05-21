@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_152016) do
+ActiveRecord::Schema.define(version: 2020_05_21_081505) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_152016) do
     t.string "ordered_postal_code"
     t.string "ordered_address"
     t.string "address_name"
-    t.integer "shipping_cost"
+    t.integer "shipping_cost", default: 800
     t.integer "total_price"
     t.integer "payment_method"
     t.integer "order_status"

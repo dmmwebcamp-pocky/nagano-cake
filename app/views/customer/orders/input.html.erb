@@ -5,9 +5,9 @@
         <div class="cache-method">
             <span class="headline-cache">支払方法</span>
             <div class="#">
-                <%= f.radio_button :payment_method, 0 %>
+                <%= f.radio_button :payment_method, :クレジットカード %>
                 <%= f.label :クレジット %><br>
-                <%= f.radio_button :payment_method, 1 %>
+                <%= f.radio_button :payment_method, :銀行振込 %>
                 <%= f.label :銀行振込 %>
             </div>
         </div><br>
