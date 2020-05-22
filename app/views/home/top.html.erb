@@ -12,6 +12,11 @@
 				<p>会員でない方も商品の閲覧はできますが、</p>
 				<p>購入には会員登録が必要になります。</p>
 			</div>
+      <div class="skippr">
+       <div style="background-image: url(<%= asset_path('apple_cake.png') %>)"></div>
+       <div style="background-image: url(<%= asset_path('donut.jpeg') %>)"></div>
+       <div style="background-image: url(<%= asset_path('Macaroons.jpeg') %>)"></div>
+      </div>
 		</div>
 
 		<div class="recomend">
@@ -21,7 +26,7 @@
       <% @products.last(4).each do |product| %>
       <div class="recomend-items">
         <%= link_to customer_product_path(product) do %>
-          <%= attachment_image_tag product, :image, :fill, format: 'jpeg', fallback: 'no_image.jpg', size: '100x100', class: "rounded" %><br>
+          <%= attachment_image_tag product, :image, fallback: 'no_image.jpg', size: '100x100', class: "rounded" %><br>
           <%= product.product_name %>
           <%= (product.nontax * 1.1).floor %> 円
         <% end %>
