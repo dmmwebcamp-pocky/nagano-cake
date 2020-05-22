@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_081505) do
+ActiveRecord::Schema.define(version: 2020_05_22_062616) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 2020_05_21_081505) do
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_cart_items_on_customer_id"
     t.index ["product_id"], name: "index_cart_items_on_product_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "customer_id"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -76,8 +84,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_081505) do
   create_table "orders", force: :cascade do |t|
     t.string "ordered_postal_code"
     t.string "ordered_address"
-    t.string "address_name"
-    t.integer "shipping_cost", default: 800
+    t.string "adress_name"
+    t.integer "shipping_cost"
     t.integer "total_price"
     t.integer "payment_method"
     t.integer "order_status"
@@ -98,16 +106,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_081505) do
     t.integer "sales_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "shippings", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "postal_code"
-    t.string "address"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_shippings_on_customer_id"
   end
 
 end

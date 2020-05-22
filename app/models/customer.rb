@@ -18,4 +18,6 @@ class Customer < ApplicationRecord
 
   acts_as_paranoid #paranoia
 
+  has_many :comments, dependent: :destroy
+
 end

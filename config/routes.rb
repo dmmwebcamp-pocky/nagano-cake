@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   namespace :customer do
     resource :customers
-    resources :products, only: [:show, :index, :new, :create]
+    resources :products, only: [:show, :index, :new, :create] do
+      resources :comments ,only: [:create, :destroy]
+    end
     resources :cart_items, only: [:index, :new, :create, :update]
   end
 
