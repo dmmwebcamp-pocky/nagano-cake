@@ -3,7 +3,6 @@ class Admin::ProductsController < ApplicationController
 
 	def	index
 		@products = Product.all.page(params[:page]).per(10)#１ページ10件表示
-		@products = Product.all
 		@genres = Genre.all
 
 	end
