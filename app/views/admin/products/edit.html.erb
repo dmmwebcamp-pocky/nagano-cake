@@ -7,6 +7,7 @@
 		<%= form_for @product,url:admin_product_path(@product) do |product| %>
 			<div class="col-xs-4">
 				<p><%= attachment_image_tag @product, :image,　format: 'jpeg', fallback: "no_image.jpg", size: "300x300" %></p>
+				<%= product.attachment_field :image %>
 			</div>
 			<div class="col-xs-4">
 							<p>商品名<%= product.text_field :product_name %></p>
