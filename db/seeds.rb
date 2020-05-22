@@ -16,3 +16,5 @@ Genre.create(genre_name: 'cake', genre_status: 0 )
 Product.create(product_name: '劇団ひとり', genre_id: 1, explanation: 'かわしましょうごです。', nontax: 1000, sales_status: 0 )
 Product.create(product_name: 'smile', genre_id: 2, explanation: 'チョコケーキです。', nontax: 500, sales_status: 0 )
 
+Order.create!(customer_id: 1, order_status: 0, ordered_postal_code: '111-1111', ordered_address: '東京都渋谷区', address_name: '山田次郎', payment_method: 0, shipping_cost: 800, total_price: 5000)
+OrderedProduct.create!(order_id: 1, product_id: 1, product_tax: 3000, quantity: 3, production_status: 0)
