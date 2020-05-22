@@ -1,6 +1,6 @@
 class Admin::CustomersController < ApplicationController
   def index
-    @customers = Customer.all.page(params[:page]).per(3)
+    @customers = Customer.with_deleted.page(params[:page]).per(3)
   end
 
   def show

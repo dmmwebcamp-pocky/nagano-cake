@@ -68,5 +68,6 @@ gem 'jquery-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'paranoia'
-gem 'kaminari','~> 1.1.1' 
+gem 'kaminari','~> 1.1.1'
 gem 'pry-byebug'
+gem 'font-awesome-sass', '~> 5.4.1'
