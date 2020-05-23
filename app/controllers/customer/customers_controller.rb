@@ -1,4 +1,5 @@
 class Customer::CustomersController < ApplicationController
+  #before_action :authenticate_customer!, only: [:show, :edit]
 
   def show
     @customer = current_customer
