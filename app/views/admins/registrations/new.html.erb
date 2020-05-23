@@ -1,46 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-offset-3 col-md-5">
-      <div class="form-header">
-        <h3>管理者登録</h3>
-      </div>
-    </div>
-<div class="col-xs-7 col-xs-offset-3">
+<h2>Sign up</h2>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field row">
-    <%= f.label :email, class: "email_field col-xs-6 float-right", style: "width: 200px;" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "email_field col-xs-6" %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field row">
-    <%= f.label :password（6文字以上）, class: "password_field col-xs-6 float-right", style: "width:200px;" %>
-    <!-- 
+  <div class="field">
+    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
-     -->
-    <%= f.password_field :password, autocomplete: "new-password", class: "password_field col-xs-6" %>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field row">
-    <%= f.label :password_confirmation, class: "password_field col-xs-6 float-right", style: "width: 200px;" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "password_field col-xs-6" %>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="action row">
-    <%= f.submit "Sign up", class: "login_btn col-xs-4 col-xs-offset-4 btn btn-success" %>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
   </div>
 <% end %>
-<!-- 
-<div class="log_in row">
-  <p class:="here col-xs-8 col-xs-offset-2">既に登録済みの方は<%= link_to "こちら", new_admin_session_path %>からログインしてください。</p>
-</div>
- -->
-<!-- 
+
 <%= render "admins/shared/links" %>
- -->
-</div>
-</div>
-</div>

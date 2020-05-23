@@ -1,27 +1,26 @@
+ <%= link_to  "ログアウト", destroy_customer_session_path, class: "logout glyphicon glyphicon-log-out", method: :delete %>
+
 <div class="mypage-wrapper">
 
 	<div class="mypage-logo">
 		<span>マイページ</span>
 	</div>
 
-<div class="row">
 	<div class="info-menu">
-		<span class="info-logo">登録情報</span>
+		<span>登録情報</span>
 		<%= link_to '編集する',edit_customer_customers_path, class: "btn btn-primary" %>
 		<%=link_to "パスワードを変更する", root_path, class: "btn btn-primary" %>
 	</div>
-</div>
 
-<div class="row">
-	<table class="info-table col-md-6">
+	<table class="info-table">
 		<tbody>
 			<tr>
 				<td class="left">氏名</td>
-				<td><%= @customer.first_name %><%= " " %><%= @customer.last_name %></td>
+				<td><%= @customer.first_name %><%= @customer.last_name %></td>
 			</tr>
 			<tr>
 				<td class="left">カナ</td>
-				<td><%= @customer.first_name_kana %><%= " " %><%= @customer.last_name_kana %></td>
+				<td><%= @customer.first_name_kana %><%= @customer.last_name_kana %></td>
 			</tr>
 			<tr>
 				<td class="left">郵便番号</td>
@@ -41,14 +40,12 @@
 			</tr>
 		</tbody>
 	</table>
-</div>
 
-<div class="row">
 	<table class="my-orders">
 		<tbody>
 			<tr>
 				<td>配送先</td>
-				<td><%= link_to '一覧を見る',customer_shippings_path, class: "btn btn-primary" %></td>
+				<td><%= link_to '一覧を見る',root_path, class: "btn btn-primary" %></td>
 			</tr>
 			<tr>
 				<td>注文履歴</td>
@@ -56,5 +53,4 @@
 			</tr>
 		</tbody>
 	</table>
-</div>
 </div>

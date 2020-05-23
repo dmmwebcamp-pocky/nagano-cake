@@ -13,37 +13,15 @@
     <header class="nav navbar-fixed-top">
       <div class="container-fluid">
         <nav class="nav navbar-nav navbar-left">
-          <h2><strong><%= link_to "ながのCAKE",root_path, style: "color: #8b4513; text-decoration:none;" %></strong></h2>
+          <h2><strong>ながのCAKE</strong></h2>
         </nav>
+        <nav>
           <ul class="nav navbar-nav navbar-right">
-            <% if customer_signed_in? %>
-              <li class="youkoso">
-                ようこそ、<strong><%= current_customer.first_name %> <%= current_customer.last_name %></strong> さん！
-              </li>
-              <li><%= link_to "マイページ", customer_customers_path, class: "nav-menu" %></li>
-              <li><%= link_to "商品一覧", customer_products_path, class: "nav-menu" %></li>
-              <li><%= link_to "カート一覧", customer_cart_items_path, class: "nav-menu" %></li>
-              <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-menu" %></li>
-            <% elsif admin_signed_in? %>
-            　<li><%= link_to "商品一覧", admin_products_path, class: "nav-menu" %></li>
-              <li><%= link_to "会員一覧", admin_customers_path, class: "nav-menu" %></li>
-              <li><%= link_to "注文一覧", admin_orders_path, class: "nav-menu" %></li>
-              <li><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-menu" %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-menu" %></li>
-              <div class=" row">
-                <div class="search_field navbar-right">
-                  <%= form_with url: search_path, method: :get, local: :true do |f| %>
-                  <%= f.text_field :word %>
-                  <%= f.submit '検索' %>
-                  <% end %>
-                </div>
-              </div>
-            <% else %>
-              <li><%= link_to "商品一覧", customer_products_path, class: "nav-menu" %></li>
-              <li><%= link_to "新規登録", new_customer_registration_path, class: "nav-menu" %></li>
-              <li><%= link_to "ログイン", new_customer_session_path, class: "nav-menu" %></li>
-            <% end %>
+            <li>商品一覧</li>
+            <li>新規登録</li>
+            <li>ログイン</li>
           </ul>
+        </nav>
       </div>
     </header>
     <main>
@@ -51,10 +29,6 @@
     </main>
     <footer>
       <p>©DMM WEBCAMP-Pocky, All Right Reserved.</p>
-      <span class="insta"><a href="https://www.instagram.com/naganocake/"><i class="fab fa-instagram"></i></a></span>
-      <i class="fab fa-twitter-square fa-2x tw-blue"></i>
-      <i class="fab fa-facebook-square fa-2x fb-blue"></i>
-
     </footer>
   </body>
 </html>

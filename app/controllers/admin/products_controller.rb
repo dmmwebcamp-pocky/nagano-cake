@@ -2,9 +2,7 @@ class Admin::ProductsController < ApplicationController
 	#before_action :if_not_admin #管理者以外が特定のアクションを実行した場合には、TOPへリダイレクト
 
 	def	index
-		@products = Product.all.page(params[:page]).per(10)#１ページ10件表示
-		@genres = Genre.all
-
+		@products = Product.all
 	end
 
 	def	show

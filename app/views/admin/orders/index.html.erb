@@ -17,15 +17,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% @orders.each do |order| %>
+				<% (@orders || []).each do |f| %>
 					<tr>
-						<td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_path(order) %></td>
-						<td><%= order.customer.first_name %><%= order.customer.last_name %></td>
-						<% order.ordered_products.each do |ordered_product| %>
-  	 						<% @totalquantity += ordered_product.quantity %>
-  						<% end %>
-  						<td><%= @totalquantity %></td>
-						<td><%= order.order_status %></td>
+						<td><%= link_to created_at, admin_order_path(f) %></td>
+						<td><%= f.customer_id %></td>
+						<td><%= f.quantity %></td>
+						<td><%= f.order_status %></td>
 					</tr>
 				<% end %>
 			</tbody>

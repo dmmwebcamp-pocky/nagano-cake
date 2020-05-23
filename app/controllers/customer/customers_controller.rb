@@ -20,7 +20,7 @@ class Customer::CustomersController < ApplicationController
   def destroy
   	customer = current_customer
     customer.destroy
-    customer.customer_status = '退会済'
+    customer.customer_status = '退会済み'
     customer.save
     redirect_to new_customer_session_path
   end

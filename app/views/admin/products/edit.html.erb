@@ -7,14 +7,13 @@
 		<%= form_for @product,url:admin_product_path(@product) do |product| %>
 			<div class="col-xs-4">
 				<p><%= attachment_image_tag @product, :image,　format: 'jpeg', fallback: "no_image.jpg", size: "300x300" %></p>
-				<%= product.attachment_field :image %>
 			</div>
 			<div class="col-xs-4">
-							<p>商品名　　　<%= product.text_field :product_name %></p>
-							<p>商品説明　　<%= product.text_area :explanation, size: "20x10" %></p>
-							<p>ジャンル　　<%= product.collection_select :genre_id, Genre.all, :id, :genre_name %></p>
-							<p>税抜価格　　<%= product.text_field :nontax %>円</p>
-							<p>販売<br>ステータス　<%= product.select  :sales_status, [["販売中", "販売中"],["売切れ","売切れ"]] %></p>
+							<p>商品名<%= product.text_field :product_name %></p>
+							<p>商品説明<%= product.text_area :explanation, size: "20x10" %></p>
+							<p>ジャンル</p><%= product.collection_select :genre_id, Genre.all, :id, :genre_name %>
+							<p>税抜価格<%= product.text_field :nontax %>円</p>
+							<p>販売ステータス<%= product.select  :sales_status, [["販売中", "販売中"],["売切れ","売切れ"]] %></p>
 			</div>
 			<div class="col-xs-offset4"></div>
 	<div class="row">
