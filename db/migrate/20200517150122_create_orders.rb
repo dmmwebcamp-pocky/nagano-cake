@@ -7,7 +7,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.integer :shipping_cost
       t.integer :total_price
       t.integer :payment_method
-      t.integer :order_status
+      t.integer :order_status, default: 0
       t.references :customer, foreign_key: true
 
       t.timestamps

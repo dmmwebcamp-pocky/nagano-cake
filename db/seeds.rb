@@ -18,3 +18,4 @@ Product.create(product_name: 'smile', genre_id: 2, explanation: 'チョコケー
 
 Order.create!(customer_id: 1, order_status: 0, ordered_postal_code: '111-1111', ordered_address: '東京都渋谷区', address_name: '山田次郎', payment_method: 0, shipping_cost: 800, total_price: 5000)
 OrderedProduct.create!(order_id: 1, product_id: 1, product_tax: 3000, quantity: 3, production_status: 0)
+	
