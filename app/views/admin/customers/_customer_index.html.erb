@@ -1,19 +1,19 @@
 <div class="row">
-    <div class="col-xs-offset-2 col-xs-8">
-      <table class="table table-hover" style="width: 800px;  height: 100px;">
+    <div class="col-xs-offset-3 col-xs-6">
+      <table class="table table-hover" style="width: 700px;  height: 50px;">
       	<thead>
 	      <tr class="active">
-	        <th style="border:none; text-align: left ">会員ID</th>
+	        <th style="border:none; text-align: left">会員ID</th>
 	      	<th style="border:none; text-align: left">氏名</th>
 	      	<th style="border:none; text-align: left">メールアドレス</th>
 	      	<th style="border:none; text-align: left">ステータス</th>
 	      </tr>
 	    </thead>
-	    <tbody>
+	    <tbody style="background-color: white;">
 	      <% customers.each do |customer| %>
 	      <tr>
 	      	<td><%= customer.id %></td>
-	      	<td>
+	      	<td style="text-decoration: underline;">
 	      		<%= link_to (admin_customer_path(customer.id)) do %>
 	      		<%= customer.first_name %> <%= customer.last_name %>
 	      		<% end %>
@@ -28,6 +28,6 @@
 	      <% end %>
       	</tbody>
       </table>
-	      <div  class="col-xs-offset-3 col-xs-6"><%= paginate customers %></div>
+	      <div  class="col-xs-offset-4 col-xs-4"><%= paginate customers %></div>
     </div>
   </div>

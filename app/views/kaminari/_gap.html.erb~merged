@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%# Non-link tag that stands for skipped pages...
   - available local variables
     current_page:  a page object for the currently displayed page
@@ -6,3 +7,8 @@
     remote:        data-remote
 -%>
 <span class="page gap"><%= t('views.pagination.truncate').html_safe %></span>
+=======
+<li class='disabled'>
+  <%= content_tag :a, raw(t 'views.pagination.truncate') %>
+</li>
+>>>>>>> origin/develop

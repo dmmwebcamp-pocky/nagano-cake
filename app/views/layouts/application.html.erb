@@ -13,7 +13,7 @@
     <header class="nav navbar-fixed-top">
       <div class="container-fluid">
         <nav class="nav navbar-nav navbar-left">
-          <h2><strong>ながのCAKE</strong></h2>
+          <h2><strong><%= link_to "ながのCAKE",root_path, style: "color: #8b4513; text-decoration:none;" %></strong></h2>
         </nav>
           <ul class="nav navbar-nav navbar-right">
             <% if customer_signed_in? %>
@@ -51,6 +51,10 @@
     </main>
     <footer>
       <p>©DMM WEBCAMP-Pocky, All Right Reserved.</p>
+      <span class="insta"><a href="https://www.instagram.com/naganocake/"><i class="fab fa-instagram"></i></a></span>
+      <i class="fab fa-twitter-square fa-2x tw-blue"></i>
+      <i class="fab fa-facebook-square fa-2x fb-blue"></i>
+
     </footer>
   </body>
 </html>

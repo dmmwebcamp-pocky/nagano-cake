@@ -33,5 +33,5 @@ Shipping.create(customer_id:'3', postal_code:'3333333', address: '千葉県千�
 Shipping.create(customer_id:'4', postal_code:'8595102', address: '長崎県平戸市大久保町 3-7-18	レジデンス大久保町402',name: '棚橋')
 Shipping.create(customer_id:'5', postal_code:'8595102', address: '長崎県平戸市大久保町 3-7-18	レジデンス大久保町402',name: '棚橋')
 
-
-
+OrderedProduct.create!(order_id: 1, product_id: 1, product_tax: 3000, quantity: 3, production_status: 0)
+	
