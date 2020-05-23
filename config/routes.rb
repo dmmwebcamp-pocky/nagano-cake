@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resource :ordered_products, only: [:update]
+    resources :ordered_products, only: [:update]
   end
 
 end
