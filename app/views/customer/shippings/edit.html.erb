@@ -1,0 +1,20 @@
+<span class="shipping-headline">配送先編集</span><br>
+<%= form_for @shipping,url: customer_shipping_path do |f| %>
+    <table class="#">
+            <tr>
+                <td><%= f.label :郵便番号（ハイフンなし） %></td>
+                <td><%= f.text_field :postal_code %></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><%= f.label :住所 %></td>
+                <td><%= f.text_field :address %></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><%= f.label :宛名 %></td>
+                <td><%= f.text_field :name %></td>
+                <td><%= f.submit "編集", class: "btn btn-success " %></td>
+            </tr>
+    </table>
+<% end %>

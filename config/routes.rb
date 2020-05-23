@@ -23,6 +23,12 @@ Rails.application.routes.draw do
 
   namespace :customer do
     resource :customers
+    #get 'orders/show' => 'orders#show'  
+    get 'orders/input' => 'orders#input'
+    get 'orders/confirm' => 'orders#confirm'
+    get 'orders/done' => 'orders#done'
+    resources :orders, only: [:index, :show, :create]
+    resources :shippings, only: [:index, :create, :edit, :update, :destroy]
     resources :products, only: [:show, :index, :new, :create]
     resources :cart_items, only: [:index, :new, :create, :update]
   end
@@ -50,7 +56,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resource :ordered_products, only: [:update]
+    resources :ordered_products, only: [:update]
   end
 
 end

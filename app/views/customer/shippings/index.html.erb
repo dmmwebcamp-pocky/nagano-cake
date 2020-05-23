@@ -1,0 +1,43 @@
+<span class="shipping-headline">配送先登録/一覧</span><br>
+<%= form_for @shipping,url: customer_shippings_path do |f| %>
+    <table class="#">
+        <tr>
+            <td><%= f.label :郵便番号（ハイフンなし） %></td>
+            <td><%= f.text_field :postal_code %></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><%= f.label :住所 %></td>
+            <td><%= f.text_field :address %></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><%= f.label :宛名 %></td>
+            <td><%= f.text_field :name %></td>
+            <td><%= f.submit "登録する", class: "btn btn-success " %></td>
+        </tr>
+    </table>
+<% end %><br>
+<table class="#">
+    <thead>
+        <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+        </tr>    
+    </thead>
+    <tbody>
+        <% @shippings.each do |shipping| %>
+            <tr>
+                <td><%= shipping.postal_code %></td>
+                <td><%= shipping.address %></td>
+                <td><%= shipping.name %></td>
+                <td>
+                    <%= link_to "編集する", edit_customer_shipping_path(shipping.id), class: "btn btn-primary btn-lg btn-block" %>
+                    <%= link_to "削除する", customer_shipping_path(shipping.id), method: :delete, class: "btn btn-primary btn-lg btn-block" %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
