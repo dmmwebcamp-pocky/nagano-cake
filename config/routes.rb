@@ -17,16 +17,11 @@ Rails.application.routes.draw do
 
   namespace :customer do
     resource :customers
-    #仮ルート
-    get 'orders/show' => 'orders#show'
-    #    
+    #get 'orders/show' => 'orders#show'  
     get 'orders/input' => 'orders#input'
     get 'orders/confirm' => 'orders#confirm'
     get 'orders/done' => 'orders#done'
     resources :orders, only: [:index, :show, :create]
-    #仮ルート
-    get 'shippings/edit' => 'shippings#edit'
-    #
     resources :shippings, only: [:index, :create, :edit, :update, :destroy]
     resources :products, only: [:show, :index, :new, :create]
     resources :cart_items, only: [:index, :new, :create, :update]
