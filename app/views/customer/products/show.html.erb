@@ -16,7 +16,7 @@
                 <%= @product.explanation %>
             </div>
             <br>
-            <p><span class=product-price><%= @product.nontax %></span>（税込）</p>
+            <p><span class=product-price>¥ <%= @product.nontax.to_s(:delimited) %></span>（税込）</p>
             <br>
             <%# 商品の数量選択プルダウン %>
             <%= form_for @quantity,url:customer_cart_items_path do |f| %>
@@ -32,7 +32,7 @@
         <div class="comment">
             <h4>コメントフォーム</h4>
             <div class="comment-form form-inline">
-                <%= form_with model: [@product,@product_comment], url: customer_product_comments_path(@product.id), local: true do |f| %>
+                <%= form_with model: [@product,@product_comment], url: customer_product_comments_path(@product.id), remote: true do |f| %>
                 <% if @product_comment.errors.any? %>
                     <h5><%= @product_comment.errors.count %>error occurrence</h5>
                     <ul>
@@ -45,14 +45,8 @@
                 <%= f.submit "送信" %>
                 <% end %>
             </div>
-            <div class="comment-body">
-                <% @product_comments.each do |comment|%>
-                <ul>
-                  <li class="comment-id" style="float: left">会員ID：<strong><%= comment.customer.id %></strong></li>
-                  <li class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></li>
-                  <li class="comment-entry"><%= comment.comment %></li>
-                </ul>
-                <% end %>
+            <div id="comment-body_<%= @product.id %>">
+                <%= render partial: 'customer/comments/comment', locals: {product_comments: @product_comments, product: @product} %>
             </div>
         </div>
     </div>

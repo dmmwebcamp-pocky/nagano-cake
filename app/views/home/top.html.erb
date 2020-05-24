@@ -23,7 +23,7 @@
     </div>
 
     <div class="row">
-  		<h2 class="recomend-headline">オススメ商品</h2>
+  		<h2 class="recomend-headline" style="display: inline-block; border-bottom: double;">オススメ商品</h2>
       <div class="recomend-box">
       <% @products.last(4).each do |product| %>
       <%= link_to customer_product_path(product) do %>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="row">
-      <h2 class="popular-headline">人気商品</h2>
+      <h2 class="popular-headline" style="display: inline-block; border-bottom: double;">人気商品</h2>
       <div class="popular-box">
       <% @product.each do |product| %>
       <%= link_to customer_product_path(product) do %>

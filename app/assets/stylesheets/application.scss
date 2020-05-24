@@ -23,6 +23,12 @@ body {
   background-color: rgb(255, 250, 205);
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 a:link {
   color: #000000;
 }
@@ -146,6 +152,8 @@ footer p {
 }
 
 .comment-date {
+
+  margin-right: 10px;
 }
 
 .comment-entry {

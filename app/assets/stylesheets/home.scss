@@ -4,7 +4,7 @@
 
 
 .top_wrapper {
-margin: 30px 0;
+margin: 20px 0 30px 0;
 width: 700px;
 height: 300px;
 //background-image: url('apple_cake.png');
@@ -31,8 +31,8 @@ position: relative;
 //検索フォームここから
 
 .search-menu {
-  border: solid 1px black;
-  margin: 30px 50px;
+  border: solid 4px #8b4513;
+  margin: 40px 50px;
   height: 300px;
   font-size: 18px;
   td {
@@ -43,9 +43,15 @@ position: relative;
 
 
 .search-menu th {
-  border: solid 1px black;
+  border: solid 4px #8b4513;
+  background-color: #006400;
+  color: #ffffff;
   text-align: center;
   height: 10%;
+}
+
+.search-menu td {
+  background-color: floralwhite;
 }
 
 

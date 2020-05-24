@@ -8,7 +8,8 @@ class HomeController < ApplicationController
 
   def search
   	@genres = Genre.all
-	@products = Product.where(genre_id: params[:genre_id].to_i).page(params[:page]).per(8)
+	  @products = Product.where(genre_id: params[:genre_id].to_i).page(params[:page]).per(8)
+    @genre = Genre.find(params[:genre_id])
   end
 
 protected
