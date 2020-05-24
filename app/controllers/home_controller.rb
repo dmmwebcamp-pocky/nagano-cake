@@ -1,13 +1,15 @@
 class HomeController < ApplicationController
 
   def top
-  	@products = Product.all
+    @products = Product.all
+  	@product = Product.find(Comment.group(:product_id).order('count(product_id) desc').limit(4).pluck(:product_id))
   	@genres = Genre.all
   end
 
   def search
   	@genres = Genre.all
-	@products = Product.where(genre_id: params[:genre_id].to_i).page(params[:page]).per(8)
+	  @products = Product.where(genre_id: params[:genre_id].to_i).page(params[:page]).per(8)
+    @genre = Genre.find(params[:genre_id])
   end
 
 protected

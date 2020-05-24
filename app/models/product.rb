@@ -4,4 +4,6 @@ class Product < ApplicationRecord
 	belongs_to :genre
 	attachment :image
 	enum sales_status: {販売中: 0, 売切れ: 1}
+	has_many :comments, dependent: :destroy
+
 end

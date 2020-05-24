@@ -1,0 +1,2 @@
+$('.form-control').val("");
+$('#comment-body_<%= @product.id %>').html("<%= j(render partial: 'customer/comments/comment', locals: {product_comments: @product_comments, product: @product}) %>");
