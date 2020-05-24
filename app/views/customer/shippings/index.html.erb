@@ -1,0 +1,44 @@
+<div class="ppp"></div>
+<div class="shipping-box">
+    <h4 class="shipping-headline"><span class="shipping-head">配送先登録 / 一覧</span></h4><br>
+    <%= form_for @shipping,url: customer_shippings_path do |f| %>
+        <table class="shipping_form">
+            <tr>
+                <td><%= f.label :郵便番号（ハイフンなし） %></td>
+                <td><%= f.text_field :postal_code, :size=>"25" %></td>
+            </tr>
+            <tr>
+                <td><%= f.label :住所 %></td>
+                <td><%= f.text_field :address, :size=>"70" %></td>
+            </tr>
+            <tr>
+                <td><%= f.label :宛名 %></td>
+                <td><%= f.text_field :name, :size=>"25" %></td>
+                <td><%= f.submit "　　登録する　　", class: "btn btn-success btn-sm" %></td>
+            </tr>
+        </table>
+    <% end %><br>
+    <table class="#">
+        <thead>
+            <tr>
+                <th>郵便番号</th>
+                <th>住所</th>
+                <th>宛名</th>
+                <th></th>
+            </tr>    
+        </thead>
+        <tbody>
+            <% @shippings.each do |shipping| %>
+                <tr>
+                    <td><%= shipping.postal_code %></td>
+                    <td><%= shipping.address %></td>
+                    <td><%= shipping.name %></td>
+                    <td>
+                        <%= link_to "編集する", edit_customer_shipping_path(shipping.id), class: "btn btn-primary btn-sm" %>
+                        <%= link_to "削除する", customer_shipping_path(shipping.id), method: :delete, class: "btn btn-danger btn-sm" %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

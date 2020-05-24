@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_062616) do
+
+ActiveRecord::Schema.define(version: 2020_05_23_082745) do
+
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -74,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_062616) do
   create_table "ordered_products", force: :cascade do |t|
     t.integer "order_id"
     t.integer "product_id"
-    t.integer "production_status"
+    t.integer "production_status", default: 0
     t.integer "quantity"
     t.integer "product_tax"
     t.datetime "created_at", null: false
@@ -88,13 +90,11 @@ ActiveRecord::Schema.define(version: 2020_05_22_062616) do
     t.integer "shipping_cost"
     t.integer "total_price"
     t.integer "payment_method"
-    t.integer "order_status"
+    t.integer "order_status", default: 0
     t.integer "customer_id"
-    t.integer "ordered_product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
-    t.index ["ordered_product_id"], name: "index_orders_on_ordered_product_id"
   end
 
   create_table "products", force: :cascade do |t|

@@ -1,32 +1,31 @@
 class Admin::OrdersController < ApplicationController
   def index
   	@orders = Order.all
-  	@order = OrderedProduct.all
-  	# @orders.each do |order|
-  	# 	@totalquantity = 0
-  	# 	@totalquantity += ordered_products.quantity
-  	#end
   end
 
   def show
   	@order = Order.find(params[:id])
   	@ordered_products = @order.ordered_products
+  	@total = 0
   	@ordered_products.each do |ordered_product|
-  		@total = 0
-  		@total += ordered_product.quantity * ordered_product.product_tax
+  	@total += ordered_product.quantity * ordered_product.product_tax
   	end
   end
 
   def update
   	@order = Order.find(params[:id])
-	if @order.update(order_params)
-  	redirect_to admin_orders_path
-  	else render :@order
+  	@ordered_products = @order.ordered_products
+	@order.update(order_params)
+  	if @order.read_attribute_before_type_cast(:order_status) == 1#1:入金確認したら製作ステータスを1:製作待ちにする
+  		@ordered_products.each do |ordered_product|
+  			ordered_product.update(production_status: 1)
+  		end
   	end
+  	redirect_to request.referer
   end
 
   private
   	def order_params
-  	params.require(:order).permit(:order_status)
+  		params.require(:order).permit(:order_status)
   	end
 end
