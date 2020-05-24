@@ -1,6 +1,6 @@
 class Customer::OrdersController < ApplicationController
     def index #注文履歴一覧画面(途中)
-        @order.where(customer_id: current_customer.id)
+        @order = Order.where(customer_id: current_customer.id)
     end
 
     def show #注文履歴画面(途中)
@@ -9,6 +9,17 @@ class Customer::OrdersController < ApplicationController
     def create #注文の追加を保存
         @order = Order.new(collect_order)
         @order.save
+        #カートアイテム全削除
+       @carts = CartItem.where(customer_id: current_customer.id) 
+        @carts.each do |carts|
+            @ordered = OrderedProduct.new
+            @ordered.order_id = @order.id
+            @ordered.product_id = carts.product_id
+            @ordered.quantity = carts.quantity
+            @ordered.product_tax = carts.product.nontax * 1.1
+            @ordered.save
+        end
+        @carts.destroy_all
         redirect_to customer_orders_done_path
     end
 
