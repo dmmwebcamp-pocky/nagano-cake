@@ -71,4 +71,6 @@ gem 'paranoia'
 gem 'kaminari','~> 1.1.1'
 gem 'pry-byebug'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'pry-rails'
 gem 'rails-i18n'
+
