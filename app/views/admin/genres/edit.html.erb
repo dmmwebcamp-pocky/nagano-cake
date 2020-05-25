@@ -11,7 +11,7 @@
 				ジャンル<%= form_for @genre,url:admin_genre_path(@genre) do |f| %>
 			</div>
 				<%= f.text_field :genre_name %>
-				<%= f.radio_button :genre_status, :有効, checked: "checked" %>
+				<%= f.radio_button :genre_status, :有効 %>
 				<%= f.label :有効 %>
     			<%= f.radio_button :genre_status, :無効 %>
     			<%= f.label :無効 %>

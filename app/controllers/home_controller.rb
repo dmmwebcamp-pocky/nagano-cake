@@ -12,6 +12,10 @@ class HomeController < ApplicationController
     @genre = Genre.find(params[:genre_id])
   end
 
+  def abaut
+    
+  end
+
 protected
 
   def product_params
