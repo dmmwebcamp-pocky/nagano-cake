@@ -5,9 +5,15 @@ Rails.application.routes.draw do
     resources :customers
   end
 
-  root 'home#top'
+#deviseでコントローラー名(customers)をつけて作っていたらコントローラーを変更する
+#変更しないとdeviseコントローラーを使うことになる
+  devise_for :customers, :controllers => {
+ :registrations => 'customers/registrations',
+ :sessions => 'customers/sessions',
+ :passwords => 'customers/passwords'
+}
 
-  devise_for :customers
+  root 'home#top'
 
   delete 'customer/cart_items/:id' => 'customer/cart_items#cancel', as:'cart_items_cancel'
 
@@ -17,6 +23,11 @@ Rails.application.routes.draw do
 
   namespace :customer do
     resource :customers
+
+    resources :products, only: [:show, :index, :new, :create] do
+      resources :comments ,only: [:create, :destroy]
+    end
+
     #get 'orders/show' => 'orders#show'  
     get 'orders/input' => 'orders#input'
     get 'orders/confirm' => 'orders#confirm'
@@ -24,6 +35,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :create]
     resources :shippings, only: [:index, :create, :edit, :update, :destroy]
     resources :products, only: [:show, :index, :new, :create]
+
     resources :cart_items, only: [:index, :new, :create, :update]
   end
 
@@ -52,5 +64,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :ordered_products, only: [:update]
   end
+
+  get 'home/about' => 'home#about'
 
 end

@@ -29,5 +29,8 @@ protected
       devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name,:last_name,:first_name_kana,:last_name_kana, :email, :postal_code, :address, :postal_code, :phone_number, :customer_status])
     end
 
+   def require_no_authentication
+   end
+
 
 end

@@ -1,14 +1,14 @@
 <div class="container">
     <span class="headline-confirm">注文情報確認</span>
     <div class="row">
-        <div class="col-xs-8">
-            <table class="left-table">
+        <div class="col-xs-7">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>商品名</th>
-                        <th>単価（税込）</th>
-                        <th>数量</th>
-                        <th>小計</th>
+                        <td>商品名</td>
+                        <td>単価（税込）</td>
+                        <td>数量</td>
+                        <td>小計</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,39 +18,32 @@
                         <% @total += @tanka * cart.quantity %>
                         <tr>
                             <td><%= cart.product.product_name %></td>
-                            <td><%= @tanka %></td>
+                            <td><%= @tanka.round.to_s(:delimited) %></td>
                             <td><%= cart.quantity %></td>
-                            <td><%= @tanka * cart.quantity %></td>
+                            <td><%= (@tanka * cart.quantity).round.to_s(:delimited) %></td>
                         </tr>
                     <% end %>
                 </tbody>
             </table>
         </div>
 
-        <div class="col-xs-4">
-            <table class="right-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>送料<td>
-                        <td><%= @order.shipping_cost %><td>
-                    </tr>
-                    <tr>
-                        <td>商品合計<td>
-                        <td><%= @total %><td>
-                    </tr>
-                    <tr>
-                        <td>請求金額<td>
-                        <td><%= @total + @order.shipping_cost %><td>
-                    </tr>
-                </tbody>
+        <div class="col-xs-3">
+            <table class="table table-bordered">
+                <tr>
+                    <td>送料<td>
+                    <td><%= @order.shipping_cost %><td>
+                </tr>
+                <tr>
+                    <td>商品合計<td>
+                    <td><%= @total.round.to_s(:delimited) %><td>
+                </tr>
+                <tr>
+                    <td>請求金額<td>
+                    <td><%= (@total + @order.shipping_cost).round.to_s(:delimited) %><td>
+                </tr>
             </table>
         </div>
+        <div class="col-xs-2"></div>
     </div>
 
     <div class="row">

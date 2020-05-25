@@ -1,7 +1,10 @@
 
 <span class="headline-logo">会員情報の編集</span>
 
-<%= form_for(@customer, url: customer_customers_path) do |f| %>
+  <%= form_for(@customer, url: customer_customers_path) do |f| %>
+    <% @customer.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+      <% end %>
 
       <table class="registration_form">
           <tr>
