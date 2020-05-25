@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-	#before_action :if_not_admin #管理者以外が特定のアクションを実行した場合には、TOPへリダイレクト
+	before_action :authenticate_admin!
 
 	def	index
 		@products = Product.all.page(params[:page]).per(10)#１ページ10件表示
@@ -36,9 +36,9 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	private
-		#def if_not_admin
-		#redirect_to "/admin/top" unless current_customer.admin?
-		#end
+		# def if_not_admin
+		# redirect_to root_path unless current_customer.admin?
+		# end
 
 		def product_params
 			params.require(:product).permit(:image, :product_name, :explanation, :genre_id, :nontax, :sales_status)
