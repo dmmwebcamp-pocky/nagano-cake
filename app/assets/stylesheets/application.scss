@@ -169,6 +169,47 @@ footer p {
 
 /// コメント ///
 
+// マップ //
+
+#map{
+  width: 900px;
+    height: 400px;
+}
+
+// マップ //
+
+// 店舗情報 //
+
+.shop-image {
+  background-image: url('cake_shop.jpg');
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.info-body {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 5px;
+}
+
+.info-body tr {
+  height: 50px;
+  border-bottom: 1.5px dotted #d3d3d3;
+  padding: 10px;
+}
+
+.info-index {
+  width: 100px;
+  padding-left: 10px;
+}
+
+.info-content {
+  width: 450px;
+  padding-right: 10px;
+}
+
+// 店舗情報 //
+
 ////会員登録フォームここまで////
 
 .registration-wrapper {

@@ -59,4 +59,6 @@ Rails.application.routes.draw do
     resources :ordered_products, only: [:update]
   end
 
+  get 'home/about' => 'home#about'
+
 end
