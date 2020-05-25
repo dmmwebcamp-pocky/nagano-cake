@@ -24,4 +24,6 @@ class Customer < ApplicationRecord
     super(conditions.merge(:customer_status => "有効"))
   end
 
+  has_many :comments, dependent: :destroy
+
 end

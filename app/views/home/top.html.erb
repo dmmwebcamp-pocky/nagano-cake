@@ -5,35 +5,55 @@
   </div>
 
 	<div class="col-xs-9">
-		<div class="top_wrapper">
-			<div class="welcome_message">
-				<p>ようこそ、NaganoCakeへ！</p>
-				<p>このサイトは、ケーキ販売のECサイトになります。</p>
-				<p>会員でない方も商品の閲覧はできますが、</p>
-				<p>購入には会員登録が必要になります。</p>
-			</div>
-      <div class="skippr">
-       <div style="background-image: url(<%= asset_path('apple_cake.png') %>)"></div>
-       <div style="background-image: url(<%= asset_path('donut.jpeg') %>)"></div>
-       <div style="background-image: url(<%= asset_path('Macaroons.jpeg') %>)"></div>
-      </div>
-		</div>
 
-		<div class="recomend">
-			<h2>オススメ商品</h2>
+    <div class="row">
+  		<div class="top_wrapper">
+  			<div class="welcome_message">
+  				<p>ようこそ、NaganoCakeへ！</p>
+  				<p>このサイトは、ケーキ販売のECサイトになります。</p>
+  				<p>会員でない方も商品の閲覧はできますが、</p>
+  				<p>購入には会員登録が必要になります。</p>
+  			</div>
+        <div class="skippr">
+         <div style="background-image: url(<%= asset_path('apple_cake.png') %>)"></div>
+         <div style="background-image: url(<%= asset_path('donut.jpeg') %>)"></div>
+         <div style="background-image: url(<%= asset_path('Macaroons.jpeg') %>)"></div>
+        </div>
+  		</div>
     </div>
 
+    <div class="row">
+  		<h2 class="recomend-headline" style="display: inline-block; border-bottom: double;">オススメ商品</h2>
+      <div class="recomend-box">
       <% @products.last(4).each do |product| %>
-      <div class="recomend-items">
-        <%= link_to customer_product_path(product) do %>
-          <%= attachment_image_tag product, :image, fallback: 'no_image.jpg', size: '100x100', class: "rounded" %><br>
-          <%= product.product_name %>
-          <%= (product.nontax * 1.1).floor %> 円
+      <%= link_to customer_product_path(product) do %>
+      <ul class="recomend-items" style="width: 200px;">
+        <li class="recomend-photo"><%= attachment_image_tag product, :image, fallback: 'no_image.jpg', size: '150x150', class: "rounded" %></li>
+        <li class="recomend-name"><%= product.product_name %></li>
+        <li class="recomend-price">¥ <%= (product.nontax * 1.1).floor.to_s(:delimited) %></li>
         <% end %>
+      </ul>
       <% end %>
+    </div>
+    </div>
+
+    <div class="row">
+      <h2 class="popular-headline" style="display: inline-block; border-bottom: double;">人気商品</h2>
+      <div class="popular-box">
+      <% @product.each do |product| %>
+      <%= link_to customer_product_path(product) do %>
+      <ul class="popular-items" style="width: 200px;">
+        <li class="popular-photo"><%= attachment_image_tag product, :image, fallback: 'no_image.jpg', size: '150x150', class: "rounded" %></li>
+        <li class="popular-name"><%= product.product_name %></li>
+        <li class="popular-price">¥ <%= (product.nontax * 1.1).floor.to_s(:delimited) %></li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+    </div>
+
   </div>
-</div>
 
+  </div>
 
-	</div>
 </div>

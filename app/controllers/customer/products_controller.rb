@@ -11,6 +11,8 @@ class Customer::ProductsController < ApplicationController
         @genres = Genre.all
         @product = Product.find(params[:id])
         @quantity = CartItem.new
+        @product_comment = Comment.new
+        @product_comments = @product.comments
     end
     
     #（仮）カートへ追加する数量を送信

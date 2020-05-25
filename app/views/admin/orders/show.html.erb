@@ -49,7 +49,7 @@
 						<td><%= ordered_products.product.product_name %></td>
 						<td><%= ordered_products.product_tax .to_s(:delimited) %></td>
 						<td><%= ordered_products.quantity %></td>
-						<td><%= @total .to_s(:delimited) %></td>
+						<td><%= (ordered_products.quantity * ordered_products.product_tax) .to_s(:delimited) %></td>
 						<td>
 							<%= form_for ordered_products,url:admin_ordered_product_path(ordered_products.id) do |f| %>
 							<%= f.select  :production_status, [["着手不可", "着手不可"],["製作待ち","製作待ち"],["製作中","製作中"],["製作完了","製作完了"]] %>
