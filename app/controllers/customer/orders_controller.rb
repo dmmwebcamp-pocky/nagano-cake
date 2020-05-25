@@ -1,9 +1,12 @@
 class Customer::OrdersController < ApplicationController
+    before_action :authenticate_customer!
+
     def index #注文履歴一覧画面(途中)
         @order = Order.where(customer_id: current_customer.id)
     end
 
     def show #注文履歴画面(途中)
+        @order = Order.find(params[:id])
     end
 
     def create #注文の追加を保存
@@ -34,12 +37,16 @@ class Customer::OrdersController < ApplicationController
         
         trigger = params[:trigger] #[自身=>A、登録済=>B、新規登録=>C]
         if trigger == 'C' #新しいお届け先
-            @order = Order.new
-            @order.payment_method = params[:payment_method]
-            @order.customer_id = current_customer.id
-            @order.ordered_postal_code = params[:ordered_postal_code]
-            @order.ordered_address = params[:ordered_address]
-            @order.address_name = params[:address_name]
+            if params[:ordered_postal_code] || params[:ordered_address] || params[:address_name] == ""
+                redirect_to customer_orders_input_path
+            else
+                @order = Order.new
+                @order.payment_method = params[:payment_method]
+                @order.customer_id = current_customer.id
+                @order.ordered_postal_code = params[:ordered_postal_code]
+                @order.ordered_address = params[:ordered_address]
+                @order.address_name = params[:address_name]
+            end
         elsif trigger == 'A' #ご自身の住所
             @order = Order.new
             @order.payment_method = params[:payment_method]
