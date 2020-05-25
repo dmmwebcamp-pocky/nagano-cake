@@ -6,7 +6,7 @@
   <% if comment.customer == current_customer %>
   <li class="comment-delete" style="float: left;"><%= link_to "<削除>", customer_product_comment_path(product, comment), method: :delete, remote: true %></li>
   <% end %>
-<% end %>
 </div>
   <li class="comment-entry"><%= comment.comment %></li>
 </ul>
+<% end %>
