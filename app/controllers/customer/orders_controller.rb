@@ -38,11 +38,17 @@ class Customer::OrdersController < ApplicationController
         trigger = params[:trigger] #[自身=>A、登録済=>B、新規登録=>C]
         if trigger == 'C' #新しいお届け先
             @order = Order.new
+            @shipping = Shipping.new
             @order.payment_method = params[:payment_method]
             @order.customer_id = current_customer.id
             @order.ordered_postal_code = params[:ordered_postal_code]
             @order.ordered_address = params[:ordered_address]
             @order.address_name = params[:address_name]
+            @shipping.customer_id = current_customer.id
+            @shipping.postal_code = params[:ordered_postal_code]
+            @shipping.address = params[:ordered_address] 
+            @shipping.name = params[:address_name]
+            @shipping.save
             if ((@order.ordered_postal_code == "") || (@order.ordered_address == "") || (@order.address_name == ""))
                 redirect_to customer_orders_input_path
             end

@@ -41,13 +41,15 @@
       <h2 class="popular-headline" style="display: inline-block; border-bottom: double;">人気商品</h2>
       <div class="popular-box">
       <% @product.each do |product| %>
-      <%= link_to customer_product_path(product) do %>
-      <ul class="popular-items" style="width: 200px;">
-        <li class="popular-photo"><%= attachment_image_tag product, :image, fallback: 'no_image.jpg', size: '150x150', class: "rounded" %></li>
-        <li class="popular-name"><%= product.product_name %></li>
-        <li class="popular-price">¥ <%= (product.nontax * 1.1).floor.to_s(:delimited) %></li>
+        <% if product.genre.genre_status == "有効" %>
+          <%= link_to customer_product_path(product) do %>
+            <ul class="popular-items" style="width: 200px;">
+              <li class="popular-photo"><%= attachment_image_tag product, :image, fallback: 'no_image.jpg', size: '150x150', class: "rounded" %></li>
+              <li class="popular-name"><%= product.product_name %></li>
+              <li class="popular-price">¥ <%= (product.nontax * 1.1).floor.to_s(:delimited) %></li>
+          <% end %>
+        </ul>
         <% end %>
-      </ul>
       <% end %>
     </div>
     </div>
