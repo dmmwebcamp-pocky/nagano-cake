@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
+
 $(document).on('turbolinks:load', function() {
     $(".skippr").skippr({
         // スライドショーの変化（"fade" or "slide"）

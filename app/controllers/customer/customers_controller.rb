@@ -11,8 +11,11 @@ class Customer::CustomersController < ApplicationController
 
   def update
   	@customer = current_customer
-    @customer.update(customer_params)
-    redirect_to customer_customers_path(@customer.id)
+    if @customer.update(customer_params)
+      redirect_to customer_customers_path
+    else
+      render :edit
+    end
   end
 
   def withdraw #退会ページ用
@@ -20,12 +23,8 @@ class Customer::CustomersController < ApplicationController
 
   def destroy
   	customer = current_customer
-    if customer.destroy
-     customer.customer_status = '退会済'
-     redirect_to root_path
-    else
-      render template: "home/top"
-    end
+    customer.update(customer_status: "退会済")
+    redirect_to root_path
   end
 
   	private
