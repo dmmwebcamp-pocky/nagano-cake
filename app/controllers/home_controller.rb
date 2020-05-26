@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   def top
+
     @products = Product.where(sales_status: 0).page(params[:page]).per(8)
   	@product = Product.find(Comment.group(:product_id).order('count(product_id) desc').limit(4).pluck(:product_id))
   	@genres = Genre.where(genre_status: 0)
