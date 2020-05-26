@@ -1,5 +1,5 @@
 <div class="container">
-    <span class="headline-confirm">注文情報確認</span>
+    <h3><span class="headline-confirm">注文情報確認</span></h3>
     <div class="row">
         <div class="col-xs-7">
             <table class="table table-bordered">
@@ -17,7 +17,7 @@
                         <% @tanka = cart.product.nontax * 1.1 %>
                         <% @total += @tanka * cart.quantity %>
                         <tr>
-                            <td><%= cart.product.product_name %></td>
+                            <td><%= attachment_image_tag(cart.product, :image, fallback: "no_image.jpg", size: "60x60") %>　<%= cart.product.product_name %></td>
                             <td><%= @tanka.round.to_s(:delimited) %></td>
                             <td><%= cart.quantity %></td>
                             <td><%= (@tanka * cart.quantity).round.to_s(:delimited) %></td>
@@ -30,16 +30,16 @@
         <div class="col-xs-3">
             <table class="table table-bordered">
                 <tr>
-                    <td>送料<td>
-                    <td><%= @order.shipping_cost %><td>
+                    <td>送料</td>
+                    <td><%= @order.shipping_cost %></td>
                 </tr>
                 <tr>
-                    <td>商品合計<td>
-                    <td><%= @total.round.to_s(:delimited) %><td>
+                    <td>商品合計</td>
+                    <td><%= @total.round.to_s(:delimited) %></td>
                 </tr>
                 <tr>
-                    <td>請求金額<td>
-                    <td><%= (@total + @order.shipping_cost).round.to_s(:delimited) %><td>
+                    <td>請求金額</td>
+                    <td><%= (@total + @order.shipping_cost).round.to_s(:delimited) %></td>
                 </tr>
             </table>
         </div>
@@ -49,12 +49,13 @@
     <div class="row">
         <div class="col-xs-8">
             <ul>
-                <li><span class="titlw">支払方法</span></li>
+                <li><span class="title">支払方法</span></li>
                 <li><%= @order.payment_method %></li>
             </ul>
             <ul>
-                <li><span class="titlw">お届け先</span></li>
-                <li><%= @order.full_ordered%></li>
+                <li><span class="title">お届け先</span></li>
+                <li><%= @order.ordered_postal_code %>　<%= @order.ordered_address %><br>
+                    <%= @order.address_name %></li>
             </ul>
         </div>
         <div class="col-xs-4">
@@ -62,8 +63,8 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-4"></div>
-        <div class="col-xs-4">
+        <%# <div class="col-xs-4"></div> %>
+        <div class="col-xs-offset-5 col-xs-2">
         <%= form_for @order,url:customer_orders_path do |f| %>
             <%= f.hidden_field :ordered_postal_code, :value => @order.ordered_postal_code %>
             <%= f.hidden_field :ordered_address, :value => @order.ordered_address %>
@@ -73,9 +74,11 @@
             <%= f.hidden_field :payment_method, :value => @order.payment_method %>
             <%= f.hidden_field :order_status, :value => @order.order_status %>
             <%= f.hidden_field :customer_id, :value => current_customer.id %>
-            <%= f.submit '注文確定'%>
+
+            <%= f.submit "　購入を確定する　", class: "btn btn-success" %>
+
         <% end %>
         </div>
-        <div class="col-xs-4"></div>
+        <%# <div class="col-xs-4"></div> %>
     </div>
 </div>

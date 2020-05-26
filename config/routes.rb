@@ -15,8 +15,6 @@ Rails.application.routes.draw do
 
   root 'home#top'
 
-  delete 'customer/cart_items/:id' => 'customer/cart_items#cancel', as:'cart_items_cancel'
-
   namespace :admin do
     resources :customers
   end
@@ -24,19 +22,21 @@ Rails.application.routes.draw do
   namespace :customer do
     resource :customers
 
+    delete 'cart_items' => 'cart_items#destroy', as: 'cart_items'
+    delete 'cart_items/:id' => 'cart_items#cancel', as:'cart_items_cancel'
+    resources :cart_items, only: [:index, :new, :create, :update]
+
     resources :products, only: [:show, :index, :new, :create] do
       resources :comments ,only: [:create, :destroy]
     end
 
-    #get 'orders/show' => 'orders#show'  
+    #get 'orders/show' => 'orders#show'
     get 'orders/input' => 'orders#input'
     get 'orders/confirm' => 'orders#confirm'
     get 'orders/done' => 'orders#done'
     resources :orders, only: [:index, :show, :create]
     resources :shippings, only: [:index, :create, :edit, :update, :destroy]
     resources :products, only: [:show, :index, :new, :create]
-
-    resources :cart_items, only: [:index, :new, :create, :update]
   end
 
   devise_for :admins
