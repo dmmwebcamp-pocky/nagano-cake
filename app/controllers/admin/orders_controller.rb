@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
 	before_action :authenticate_admin!
   def index
-  	@orders = Order.all
+  	@orders = Order.all.page(params[:page]).per(10)#１ページ10件表示
   end
 
   def show
