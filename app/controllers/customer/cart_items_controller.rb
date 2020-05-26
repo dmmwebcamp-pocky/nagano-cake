@@ -1,5 +1,5 @@
 class Customer::CartItemsController < ApplicationController
-  #before_action :authenticate_customer!
+  before_action :authenticate_customer!
 
   def index
     @carts = current_customer.cart_items
@@ -20,7 +20,7 @@ class Customer::CartItemsController < ApplicationController
 
   def update
     @cart = CartItem.find(params[:id])
-    @cart.customer_id= current_customer.id
+    @cart.customer_id = current_customer.id
     @cart.update(cart_item_params)
     redirect_to customer_cart_items_path
   end
