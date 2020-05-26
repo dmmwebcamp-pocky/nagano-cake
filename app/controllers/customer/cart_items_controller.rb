@@ -33,7 +33,7 @@ class Customer::CartItemsController < ApplicationController
 
   def destroy
     @carts = current_customer.cart_items
-    @carts.destroy_all    #全データを消す場合はdestroy_allメソッド（1つを消すときはdestroy)
+    @carts.destroy_all
     redirect_to customer_products_path
   end
 

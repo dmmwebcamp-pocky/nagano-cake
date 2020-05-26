@@ -42,8 +42,8 @@
             <% else %>
             　<li><%= link_to "店舗情報", home_about_path, class: "nav-menu" %></li>
               <li><%= link_to "商品一覧", customer_products_path, class: "nav-menu" %></li>
-              <li><%= link_to "新規登録", new_customer_registration_path, class: "nav-menu" %></li>
-              <li><%= link_to "ログイン", new_customer_session_path, class: "nav-menu" %></li>
+              <li><%= link_to "新規登録", new_customer_registration_path, class: "nav-menu", data: {turbolinks: false } %></li>
+              <li><%= link_to "ログイン", new_customer_session_path, class: "nav-menu", data: {turbolinks: false } %></li>
             <% end %>
           </ul>
       </div>
