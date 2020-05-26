@@ -12,7 +12,7 @@ class Customer < ApplicationRecord
   validates :postal_code, format: {with: /\A[0-9]{7}\z/} #7桁の数字のみ有効
   validates :address, presence: true
   validates :phone_number, presence: true,format: {with: /\A\d{10,11}\z/} #10桁or11桁の数字のみ有効
-  validates :password,presence: true, length: {minimum: 8}
+  validates :password,presence: true, length: {minimum: 6}
 
   has_many :cart_items, dependent: :destroy
   has_many :shippings, dependent: :destroy
@@ -25,6 +25,4 @@ class Customer < ApplicationRecord
   end
 
   has_many :comments, dependent: :destroy
-
-  has_secure_password
 end

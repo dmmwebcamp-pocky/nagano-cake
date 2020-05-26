@@ -25,7 +25,7 @@
     <div class="row">
   		<h2 class="recomend-headline" style="display: inline-block; border-bottom: double;">オススメ商品</h2>
       <div class="recomend-box">
-      <% @products.last(4).each do |product| %>
+      <% @products.first(4).each do |product| %>
       <%= link_to customer_product_path(product) do %>
       <ul class="recomend-items" style="width: 200px;">
         <li class="recomend-photo"><%= attachment_image_tag product, :image, fallback: 'no_image.jpg', size: '150x150', class: "rounded" %></li>

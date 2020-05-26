@@ -13,7 +13,11 @@
     <header class="nav navbar-fixed-top">
       <div class="container-fluid">
         <nav class="nav navbar-nav navbar-left">
+          <% if admin_signed_in? %>
+          <h2><strong><%= link_to "ながのCAKE",admin_top_path, style: "color: #8b4513; text-decoration:none;" %></strong></h2>
+          <% else %>
           <h2><strong><%= link_to "ながのCAKE",root_path, style: "color: #8b4513; text-decoration:none;" %></strong></h2>
+          <% end %>
         </nav>
           <ul class="nav navbar-nav navbar-right">
             <% if customer_signed_in? %>
