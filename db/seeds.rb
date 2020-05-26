@@ -38,4 +38,4 @@ Order.create(customer_id: 2, order_status: 1)
 OrderedProduct.create(order_id: 1, product_id: 1, product_tax: 3000, quantity: 3, production_status: 0)
 OrderedProduct.create(order_id: 1, product_id: 2, product_tax: 5000, quantity: 3, production_status: 0)
 OrderedProduct.create(order_id: 2, product_id: 2, product_tax: 3000, quantity: 3, production_status: 0)
-	
+
