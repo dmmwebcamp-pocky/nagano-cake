@@ -29,7 +29,7 @@
             <table class="table table-bordered">
                 <tr>
                     <td>商品合計</td>
-                    <td><%= @order.total_price %></td>
+                    <td><%= @order.total_price.round.to_s(:delimited) %></td>
                 </tr>
                 <tr>
                     <td>配送料</td>
@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <th>ご請求額</th>
-                    <td><%= @order.total_price + @order.shipping_cost %></td>
+                    <td><%= (@order.total_price + @order.shipping_cost).round.to_s(:delimited) %></td>
                 </tr>
             </table>
         </div>
@@ -59,9 +59,9 @@
                     <% @order.ordered_products.each do |ordered_product| %>
                     <tr>
                         <td><%= ordered_product.product.product_name %></td>
-                        <td><%= ordered_product.product_tax %></td>
+                        <td><%= ordered_product.product_tax.round.to_s(:delimited) %></td>
                         <td><%= ordered_product.quantity %></td>
-                        <td><%= ordered_product.product_tax * ordered_product.quantity %></td>
+                        <td><%= (ordered_product.product_tax * ordered_product.quantity).round.to_s(:delimited) %></td>
                     </tr>
                     <% end %>
                 </tbody>
