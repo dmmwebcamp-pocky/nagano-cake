@@ -1,17 +1,8 @@
 <dev class="container">
   <span class="headline-logo">会員の方はこちらからログイン</span>
-
       <table class="login-menu">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <% if @customer.errors.any? %>
-        <div class = "alert alert-warning">
-          <ul>
-              <% @customer.errors.full_messages.each do |message| %>
-                < li><%= message %></li>
-              <% end %>
-          </ul>
-      </div>
-      <% end %>
+        <p id="notice"><%= notice %></p>
           <tr>
             <td width=20%><%= f.label :メールアドレス %></td>
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email", :size=>"50" %></td>
