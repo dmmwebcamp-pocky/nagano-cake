@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="title col-xs-11 col-xs-offset-1">
-	    <h3><%= @customer.first_name %> <%= @customer.last_name %>さんの会員詳細</h3>
+	    <h3 style="display: inline-block;"><%= @customer.first_name %> <%= @customer.last_name %>さんの会員詳細</h3>
     </div>
   </div>
 
@@ -46,8 +46,8 @@
 
   	<div class="row">
   	  <div class="col-xs-11 col-xs-offset-1">
-  	    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-primary", style: "display: inline-block; color: white; text-decoration:none;" %>
-  	  	<%= link_to "注文履歴を見る", root_path, class: "btn btn-primary", style: "display: inline-block; color: white; text-decoration:none;" %>
+  	    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-primary", style: "display: inline-block; color: white; text-decoration:none; margin:30px 0 0 30px;" %>
+  	  	<%= link_to "注文履歴を見る", root_path, class: "btn btn-primary", style: "display: inline-block; color: white; text-decoration:none; margin:30px 0 0 30px;" %>
   	  </div>
   	</div>
   </div>
