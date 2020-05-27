@@ -24,6 +24,7 @@ class Customer::CustomersController < ApplicationController
   def destroy
   	customer = current_customer
     customer.update(customer_status: "退会済")
+    reset_session
     redirect_to root_path
   end
 

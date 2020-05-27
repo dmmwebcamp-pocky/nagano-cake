@@ -11,10 +11,14 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 	end
 
 	def after_sign_in_path_for(resource)
-    	if customer_signed_in?
-      	  root_path
+      if current_customer.customer_status == "退会済"
+         flash[:notice] = "退会済みです"
+         sign_out current_customer
+         new_customer_session_path
       	elsif admin_signed_in?
       	  '/admin/top'
+        elsif customer_signed_in?
+          root_path
       	end
 	end
 
