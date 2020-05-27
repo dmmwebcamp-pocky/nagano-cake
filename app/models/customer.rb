@@ -18,10 +18,6 @@ class Customer < ApplicationRecord
 
   #acts_as_paranoid #paranoiaはいらない（enumの切り替えだけでいい）
 
-  def self.find_for_authentication(conditions)#退会者はログインできない
-    super(conditions.merge(:customer_status => "有効"))
-  end
-
   has_many :comments, dependent: :destroy
 
 end
