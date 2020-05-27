@@ -1,24 +1,59 @@
-# README
+## Name
+ながのCAKE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト
 
-Things you may want to cover:
+## Feature
+会員側実装機能  
+・顧客は会員登録、ログイン・ログアウト、退会ができる  
+・会員のログインはメールアドレスとパスワードで行う  
+・会員がログインしている状態かどうか、ページのヘッダーにユーザ名を表示するなどして判断できるようにする  
+・サイトの閲覧はログインなしで行える  
+・商品をカートに入れ、1度に複数種類、複数商品の購入ができる。また、カート内の商品は個数変更・削除ができる  
+・カートへの商品追加はログインなしでは行えない  
+・会員はマイページからユーザ情報の閲覧・編集、注文履歴の閲覧、配送先の閲覧・編集ができる  
+・注文履歴一覧には右記の情報が表示される（注文日、配送先、注文ステータス、商品の注文内容詳細、請求情報）
+・商品は税込価格で表示される  
+・商品にコメントができる  
+・カート内の１商品を削除、カートを空にすることができる  
 
-* Ruby version
+店側実装機能  
+・管理者用メールアドレスとパスワードでログインできる  
+・商品の新規追加、編集、販売停止（売切表示）が行える  
+・商品情報は右記のものをもつ（商品名、商品説明文、ジャンル、税抜価格、商品画像、販売ステータス）
+・会員登録されているユーザ情報の閲覧、編集、退会処理が行える  
+・ユーザの注文履歴が一覧・詳細表示できる　　  
+・注文履歴には右記の情報が表示される（購入者、購入日、購入内容、請求額合計、配送先、注文ステータス、各注文商品の制作ステータス）
+・注⽂ステータス、製作ステータスの更新ができる  
+・ 商品ジャンルには「有効」「無効」を設定できる。無効に設定したジャンルは、ジャンル⼀覧に表⽰されない。また、無効になっているジャンルに紐付く
+  商品は表⽰されない。  
+・ヘッダには検索窓を配置する  
 
-* System dependencies
 
-* Configuration
+## Requirement
 
-* Database creation
+・Ruby on rails (5.2.4)  
+・HTML&CSS  
+・Javascript  
 
-* Database initialization
+ライブラリ    
+・refile  
+・refile-mini-magick  
+・bootstrap  
+・jquery  
+・kaminari  
+・devise  
+・pry-byebug  
+・font-awesome-sass  
+・pry-rails  
+・rails-i18n  
 
-* How to run the test suite
+## Install    
+・git clone https://github.com/dmmwebcamp-pocky/nagano-cake.git   
+・cd nagano_cake  
+・rails db:maigrate  
+・rails s -b 0.0.0.0  
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Authors
+チーム　ポッキー
