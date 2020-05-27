@@ -17,6 +17,7 @@
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
 
+///　スライドショー　///
 $(document).on('turbolinks:load', function() {
     $(".skippr").skippr({
         // スライドショーの変化（"fade" or "slide"）
@@ -42,6 +43,10 @@ $(document).on('turbolinks:load', function() {
     });
 });
 
+///　スライドショー　///
+
+/// マップ ///
+
 var map;
 var marker;
 var center = {
@@ -59,3 +64,5 @@ function initMap(){
       map: map // マーカーを立てる地図を指定
    });
 }
+
+/// マップ ///
