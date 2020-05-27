@@ -18,7 +18,7 @@
          <% taxprice = cart.product.nontax * 1.1 %>
          <% calc = taxprice * cart.quantity %>
            <tr>
-             <td class="col-xs-1"><%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60" %></td>
+             <td class="col-xs-1"><%= attachment_image_tag cart.product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60" %></td>
              <td class="col-xs-3"><%= cart.product.product_name %></td>
              <td class="cart-b col-xs-2"><%= taxprice.round.to_s(:delimited) %></td>
              <td class="cart-b col-xs-2"><%= form_for(cart,url:customer_cart_item_path(cart), html: {method: "patch"}) do |f| %>
