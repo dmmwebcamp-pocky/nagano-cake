@@ -22,10 +22,10 @@
                             <%= order.address_name %></td>
                         <td class="vertical-align"><% order.ordered_products.each do |ordered_product| %>
                           <%= ordered_product.product.product_name %><br>
-                        <% end %></td> 
+                        <% end %></td>
                         <td class="vertical-align"><%= (order.total_price + order.shipping_cost).round.to_s(:delimited) %>円</td>
                         <td class="vertical-align"><%= order.order_status %></td>
-                        <td class="table-align tate-tate vertical-align"><%= link_to " 表示する ", customer_order_path(order.id), class: "btn btn-primary btn-sm" %></td>
+                        <td class="table-align tate-tate vertical-align"><%= link_to " 表示する ", customer_order_path(order.id), class: "btn btn-primary btn-sm", style: "color: white;" %></td>
                     </tr>
                 <% end %>
             </tbody>

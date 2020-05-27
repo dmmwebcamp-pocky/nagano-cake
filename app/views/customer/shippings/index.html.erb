@@ -43,8 +43,8 @@
                         <td><%= shipping.address %></td>
                         <td><%= shipping.name %></td>
                         <td class="table-align">
-                            <%= link_to "編集する", edit_customer_shipping_path(shipping.id), class: "btn btn-primary btn-sm" %><%= "　" %>
-                            <%= link_to "削除する", customer_shipping_path(shipping.id), method: :delete, class: "btn btn-danger btn-sm" %>
+                            <%= link_to "編集する", edit_customer_shipping_path(shipping.id), class: "btn btn-primary btn-sm", style: "color: white;"  %>
+                            <%= link_to "削除する", customer_shipping_path(shipping.id), method: :delete, class: "btn btn-danger btn-sm", style: "color: white;"  %>
                         </td>
                     </tr>
                 <% end %>
