@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-offset-2 col-xs-8">
-			<h3><span style="background-color:gainsboro">　注文履歴一覧　</span></h3><br><br>
+			<h3><span>　注文履歴一覧　</span></h3><br><br>
 		</div>
 	</div>
 
@@ -16,7 +16,7 @@
 					<th>注文ステータス</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="background-color: rgba(255, 255, 255, 0.3);">
 				<% @orders.each do |order| %>
 					<tr>
 						<td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_path(order) %></td>
@@ -32,6 +32,6 @@
 			</tbody>
 		</table>
 	</div>
-		<%= paginate @orders %>
+		<div class="col-xs-offset-5 col-xs-6"><%= paginate @orders %></div>
 	</div>
 </div>

@@ -21,7 +21,7 @@
 					<th>ステータス</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="background-color: rgba(255, 255, 255, 0.3);">
 				<% @products.each do |product| %>
 					<tr>
 						<td><%= product.id %></td>
@@ -34,7 +34,7 @@
 			</tbody>
 		</table>
 		</div>
-		    	<%= paginate @products %>
+		    	<div class="col-xs-offset-5 col-xs-6"><%= paginate @products %></div>
 	</div>
 	</div>
 </div>
