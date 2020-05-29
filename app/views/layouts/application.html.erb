@@ -13,13 +13,18 @@
     <header class="nav navbar-fixed-top">
       <div class="container-fluid">
         <nav class="nav navbar-nav navbar-left">
+          <% if admin_signed_in? %>
+          <h2><strong><%= link_to "ながのCAKE",admin_top_path, style: "color: #8b4513; text-decoration:none;" %></strong></h2>
+          <% else %>
           <h2><strong><%= link_to "ながのCAKE",root_path, style: "color: #8b4513; text-decoration:none;" %></strong></h2>
+          <% end %>
         </nav>
           <ul class="nav navbar-nav navbar-right">
             <% if customer_signed_in? %>
               <li class="youkoso">
                 ようこそ、<strong><%= current_customer.first_name %> <%= current_customer.last_name %></strong> さん！
               </li>
+              <li><%= link_to "店舗情報", home_about_path, class: "nav-menu" %></li>
               <li><%= link_to "マイページ", customer_customers_path, class: "nav-menu" %></li>
               <li><%= link_to "商品一覧", customer_products_path, class: "nav-menu" %></li>
               <li><%= link_to "カート一覧", customer_cart_items_path, class: "nav-menu" %></li>
@@ -28,7 +33,7 @@
             　<li><%= link_to "商品一覧", admin_products_path, class: "nav-menu" %></li>
               <li><%= link_to "会員一覧", admin_customers_path, class: "nav-menu" %></li>
               <li><%= link_to "注文一覧", admin_orders_path, class: "nav-menu" %></li>
-              <li><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-menu" %></li>
+              <li><%= link_to "ジャンル一覧", admin_genres_path, class: "nav-menu", data: {turbolinks: false} %></li>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-menu" %></li>
               <div class=" row">
                 <div class="search_field navbar-right">
@@ -39,9 +44,10 @@
                 </div>
               </div>
             <% else %>
+            　<li><%= link_to "店舗情報", home_about_path, class: "nav-menu" %></li>
               <li><%= link_to "商品一覧", customer_products_path, class: "nav-menu" %></li>
-              <li><%= link_to "新規登録", new_customer_registration_path, class: "nav-menu" %></li>
-              <li><%= link_to "ログイン", new_customer_session_path, class: "nav-menu" %></li>
+              <li><%= link_to "新規登録", new_customer_registration_path, class: "nav-menu", data: {turbolinks: false } %></li>
+              <li><%= link_to "ログイン", new_customer_session_path, class: "nav-menu", data: {turbolinks: false } %></li>
             <% end %>
           </ul>
       </div>

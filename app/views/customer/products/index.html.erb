@@ -7,21 +7,23 @@
 	<div class="col-xs-9">
 		<div class="#">
 			<h2>商品一覧</h2>
-            <div class="main-box clearfix">
+            <div class="product-list clearfix">
                 <%# 実装用 %>
                 <% @products.each do |product| %>
-                    <div class="product-box">
-                        <%= attachment_image_tag(product, :image, fallback: "no_image.jpg", size: "210x210") %>
-                        <p><%= link_to product.product_name, customer_product_path(product.id) %></p>
-                        <p>￥<%= taxprice = (product.nontax * 1.1).round %></p>
-                    </div>
+                    <% if product.genre.genre_status == "有効" %>
+                        <%= link_to customer_product_path(product.id) do %>
+                            <ul class="product-box" style="width: 230px; height: 250px; margin-bottom: 20px;">
+                                <li><%= attachment_image_tag(product, :image, fallback: "no_image.jpg", size: "210x210") %></li>
+                                <li><%= product.product_name %></li>
+                                <li>¥ <%= taxprice = (product.nontax * 1.1).round.to_s(:delimited) %></li>
+                            </ul>
+                        <% end %>
+                    <% end %>
                 <% end %>
             </div>
 		</div>
         <div class="pagination">
-		    <%= paginate @products %>
+		    <div class="col-xs-offset-5 col-xs-6"><%= paginate @products %></div>
         </div>
 	</div>
 </div>
-
-<i class="fa fa-home fa-5x"></i>

@@ -2,15 +2,18 @@ class Customer::ProductsController < ApplicationController
     #商品一覧ページ
     def index
         #product.allにページネーション実装(1ページ8件)
-        @products = Product.all.page(params[:page]).per(8)
-        @genres = Genre.all
+        @products = Product.where(sales_status: 0).page(params[:page]).per(8)
+        #, Product.genres.genre_status: 0
+        @genres = Genre.where(genre_status: 0)
     end
     
     #商品詳細ページ
     def show
-        @genres = Genre.all
+        @genres = Genre.where(genre_status: 0)
         @product = Product.find(params[:id])
         @quantity = CartItem.new
+        @product_comment = Comment.new
+        @product_comments = @product.comments
     end
     
     #（仮）カートへ追加する数量を送信

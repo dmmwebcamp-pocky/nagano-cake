@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
+
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
@@ -71,3 +72,5 @@ gem 'paranoia'
 gem 'kaminari','~> 1.1.1'
 gem 'pry-byebug'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'pry-rails'
+gem 'rails-i18n'

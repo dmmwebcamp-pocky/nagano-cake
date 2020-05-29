@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-offset-2 col-xs-8">
-		<h3><span style="background-color:gainsboro">　商品一覧　</h3></span>
+		<h3><span>　商品一覧　</h3></span>
 		</div>
 	</div>
 
@@ -21,7 +21,7 @@
 					<th>ステータス</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="background-color: rgba(255, 255, 255, 0.3);">
 				<% @products.each do |product| %>
 					<tr>
 						<td><%= product.id %></td>
@@ -34,8 +34,8 @@
 			</tbody>
 		</table>
 		</div>
-		    	<%= paginate @products %>
-			</div>
+		    	<div class="col-xs-offset-5 col-xs-6"><%= paginate @products %></div>
+	</div>
 	</div>
 </div>
 

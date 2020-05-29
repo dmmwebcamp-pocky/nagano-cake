@@ -1,4 +1,5 @@
 class Customer::CustomersController < ApplicationController
+  before_action :authenticate_customer!, only: [:show, :edit]
 
   def show
     @customer = current_customer
@@ -10,8 +11,11 @@ class Customer::CustomersController < ApplicationController
 
   def update
   	@customer = current_customer
-    @customer.update(customer_params)
-    redirect_to customer_customers_path(@customer.id)
+    if @customer.update(customer_params)
+      redirect_to customer_customers_path
+    else
+      render :edit
+    end
   end
 
   def withdraw #退会ページ用
@@ -19,15 +23,14 @@ class Customer::CustomersController < ApplicationController
 
   def destroy
   	customer = current_customer
-    customer.destroy
-    customer.customer_status = '退会済'
-    customer.save
-    redirect_to new_customer_session_path
+    customer.update(customer_status: "退会済")
+    reset_session
+    redirect_to root_path
   end
 
   	private
-	def customer_params
-	  params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :phone_number, :email, :customer_status, :deleted_at)
+	 def customer_params
+	   params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :phone_number, :email, :customer_status, :deleted_at)
+	 end
 
-	end
 end

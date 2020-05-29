@@ -1,15 +1,15 @@
 class Admin::OrdersController < ApplicationController
+	before_action :authenticate_admin!
   def index
-  	@orders = Order.all
-  	 @totalquantity = 0
+  	@orders = Order.all.page(params[:page]).per(10)#１ページ10件表示
   end
 
   def show
   	@order = Order.find(params[:id])
   	@ordered_products = @order.ordered_products
+  	@total = 0
   	@ordered_products.each do |ordered_product|
-  		@total = 0
-  		@total += ordered_product.quantity * ordered_product.product_tax
+  	@total += ordered_product.quantity * ordered_product.product_tax
   	end
   end
 

@@ -1,8 +1,8 @@
 <dev class="container">
   <span class="headline-logo">会員の方はこちらからログイン</span>
-
       <table class="login-menu">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <p id="notice"><%= notice %></p>
           <tr>
             <td width=20%><%= f.label :メールアドレス %></td>
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email", :size=>"50" %></td>

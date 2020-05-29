@@ -13,7 +13,7 @@
 }
 
 .headline-a{
-    padding-left:100px;
+    margin-left:70px;
 }
 
 .headline-cache{
@@ -25,10 +25,60 @@
 }
 
 .box-in-box{
-    padding-left:15px;
+    padding-left:30px;
 }
 
 .bobobox{
     margin-left:15px;
 }
 
+.title{
+    font-weight:bold;
+}
+
+.tate-tate{
+    line-height:60px; 
+}
+
+.small-headline{
+    font-weight:bold;
+}
+
+.final-box{
+    margin:150px;
+}
+
+table{
+    tbody{
+        tr{
+            td.vertical-align{
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+.table-line{
+    tr{
+        td,th{
+            border: 1px solid #000 !important;
+        }
+    }
+}
+
+.table-line{
+    tr{
+        th{
+            height:60px;
+            line-height:60px !important;
+        }
+    }
+}
+
+.table-line-a{
+    tr{
+        td,th{
+            border: 1px solid #000 !important;
+        }
+    }
+}
